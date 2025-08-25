@@ -1,0 +1,79 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "shift+alt+j",
+    "command": "editor.action.joinLines"
+  },
+  {
+    "key": "shift+alt+w",
+    "command": "editor.emmet.action.wrapWithAbbreviation"
+  },
+  {
+    "key": "ctrl+k o",
+    "command": "workbench.action.files.openFolder",
+    "when": "openFolderWorkspaceSupport"
+  },
+  {
+    "key": "ctrl+k ctrl+o",
+    "command": "-workbench.action.files.openFolder",
+    "when": "openFolderWorkspaceSupport"
+  },
+  {
+    "key": "ctrl+k up",
+    "command": "workbench.files.action.collapseExplorerFolders"
+  },
+  {
+    "key": "ctrl+k ctrl+o",
+    "command": "workbench.action.closeOtherEditors"
+  },
+  {
+    "key": "ctrl+shift+i",
+    "command": "codegpt-sidebar.focus"
+  },
+  {
+    "key": "alt+i alt+8",
+    "command": "workbench.action.chat.openAgent",
+    "when": "config.chat.agent.enabled && !chatSetupDisabled && !chatSetupHidden"
+  },
+  {
+    "key": "ctrl+shift+i",
+    "command": "-workbench.action.chat.openAgent",
+    "when": "config.chat.agent.enabled && !chatSetupDisabled && !chatSetupHidden"
+  },
+  {
+    "key": "shift+alt+8",
+    "command": "codegpt.selectionCodeGPT",
+    "when": "editorHasSelection"
+  },
+  {
+    "key": "ctrl+shift+i",
+    "command": "-codegpt.selectionCodeGPT",
+    "when": "editorHasSelection"
+  },
+  {
+    "key": "ctrl+shift+i",
+    "command": "chatgpt-vscode.conversationView"
+  },
+  {
+    "key": "ctrl+shift+o",
+    "command": "workbench.action.files.openFileFolder",
+    "when": "isMacNative && openFolderWorkspaceSupport"
+  },
+  {
+    "key": "ctrl+o",
+    "command": "-workbench.action.files.openFileFolder",
+    "when": "isMacNative && openFolderWorkspaceSupport"
+  },
+  {
+    "key": "ctrl+k n",
+    "command": "explorer.newFolder"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "explorer.newFile"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-workbench.action.files.newUntitledFile"
+  }
+]

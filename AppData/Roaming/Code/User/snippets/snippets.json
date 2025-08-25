@@ -1,0 +1,30 @@
+{
+  "Snippet_Template": {
+    "description": "Snippet_Template",
+    "prefix": "snippet",
+    "body": [
+      "\"${1:Snippet_Name}\": {",
+      "  \"description\": \"${1:Snippet_Name}\",",
+      "  \"prefix\": \"${3:prefix}_${4}\",",
+      "  \"body\": [",
+      "    \"$0\"",
+      "  ],",
+      "  \"scope\" : \"${2}\"",
+      "},"
+    ],
+  },
+  "Scope_JavaScript": {
+    "description": "Scope_JavaScript",
+    "prefix": "scp_javascript",
+    "body": [
+      "typescript, typescriptreact, javascript, javascriptreact"
+    ],
+  },
+  "Scope_FN_JavaScript": {
+    "description": "Scope_FN_JavaScript",
+    "prefix": "prefix_",
+    "body": [
+      "javascript, javascriptreact"
+    ],
+  },
+}
