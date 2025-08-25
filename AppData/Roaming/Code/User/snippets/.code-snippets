@@ -1,7 +1,64 @@
 {
   /** 
-  * * JavaScript Function Snippet   
+  * * JavaScript Import Snippet (jssnippet)
   */
+  "Import_Default": {
+    "description": "Import_Default",
+    "prefix": "imp_default",
+    "body": [
+      "import ${1} from \"${0}\""
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "Import_Export": {
+    "description": "Import_Export",
+    "prefix": "imp_export",
+    "body": [
+      "import {${1}} from \"${0}\""
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "Import": {
+    "description": "Import",
+    "prefix": "imp",
+    "body": [
+      "import \"${0}\""
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  /** 
+  * * JavaScript Function Snippet (jssnippet)
+  */
+  "function": {
+    "description": "fn",
+    "prefix": "fn",
+    "body": [
+      "function ${1}(${2}) {",
+      "  ${0}",
+      "}"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "arrow_function": {
+    "description": "fn",
+    "prefix": "fn",
+    "body": [
+      "const ${1} = (${2}) => {",
+      "  ${0}",
+      "}"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "capitalize": {
+    "description": "capitalize",
+    "prefix": "fn_capitalize",
+    "body": [
+      "const ${0:capitalize} = (string) => {",
+      "  string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()",
+      "}"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
   "debounce": {
     "description": "debounce function",
     "prefix": "fn_debounce",
@@ -17,8 +74,42 @@
     ],
     "scope": "javascript,javascriptreact"
   },
+  "map": {
+    "description": "map",
+    "prefix": "fn_map",
+    "body": [
+      "${1}.map((el,i) => ${0})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "add_listener": {
+    "description": "add_listener",
+    "prefix": "fn_add_listener",
+    "body": [
+      "${1}.addEventListener(\"${2}\", ${0:handle${3}})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "remove_listener": {
+    "description": "add_listener",
+    "prefix": "fn_remove_listener",
+    "body": [
+      "${1}.removeEventListener(\"${2}\", handle${3})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "for": {
+    "description": "map",
+    "prefix": "fn_for",
+    "body": [
+      "for (let i = 0; i < ${1}; i++) {",
+      "  ${0}",
+      "",
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
   /** 
-  * * JavaScript Debug Snippet  
+  * * JavaScript Debug Snippet (jssnippet)
   */
   "debug_typeof": {
     "description": "debug_typeof",
@@ -37,83 +128,139 @@
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
   /** 
-  * * React Import Snippet  
+  * * React Import Snippet (reactsnippet)
   */
-  "Import_React_Create_Context": {
-    "description": "Import_React_Create_Context",
-    "prefix": "imr_create_context",
+  "Import_Create_Context": {
+    "description": "Import_Create_Context",
+    "prefix": "rim_create_context",
     "body": [
       "import { createContext, useContext } from \"react\";"
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
-  "Import_React_Context": {
+  "Import_Context": {
     "description": "Import_React_Context",
-    "prefix": "imr_context",
+    "prefix": "rim_context",
     "body": [
       "import { ${0}Context } from \"./use${1}Context.js\";"
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
-  /** 
-  * * React Function Component Snippet  
-  */
-  /** 
-  * * React Use Hooks Snippet  
-  */
-  /** 
-  * * React Create Snippet  
-  */
-  "reactUseState": {
-    "description": "reactUseState",
-    "prefix": "useState",
+  "Import_Hook": {
+    "description": "Import_Hook",
+    "prefix": "rim_hook",
     "body": [
-      "const [${1:first}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:second})"
+      "import {${0}} from \"react\";"
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
-  "reactUseRef": {
-    "description": "reactUseState",
-    "prefix": "useRef",
+  /** 
+  * * React Function Component Snippet (reactsnippet)
+  */
+  "Function_Index_Component": {
+    "description": "Function_Index_Component",
+    "prefix": "rfc_index",
     "body": [
-      "const ${1:first} = useRef(${2:second})"
+      "const ${1} = () => {",
+      "  return (",
+      "    <${0}>",
+      "    ${TM_FILENAME_BASE}",
+      "    </${0}>",
+      "  )",
+      "}",
+      "",
+      "export default ${1}"
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
-  "reactUseEffect": {
-    "description": "reactUseEffect",
-    "prefix": "useEffect",
+  "Function_Component": {
+    "description": "Function_Component",
+    "prefix": "rfc",
     "body": [
-      "useEffect(() => {",
-      "  ${1:first}",
+      "const ${TM_FILENAME_BASE} = () => {",
+      "  return (",
+      "    <${0}>",
+      "    ${TM_FILENAME_BASE}",
+      "    </${0}>",
+      "  )",
+      "}",
+      "",
+      "export default ${TM_FILENAME_BASE}"
+    ],
+  },
+  "Function_Provider_Component": {
+    "description": "Function_Provider_Component",
+    "prefix": "rfc_provider",
+    "body": [
+      "export default function ${1}Provider({ children }) {",
+      "  ",
+      "  const providerValue = undefined; // TODO: defined value",
+      "  return (",
+      "    <${1}Context.Provider value={providerValue}>",
+      "      {children}",
+      "    </${1}Context${0}.Provider>",
+      "  );",
+      "}"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+  },
+  /** 
+  * * React Use Hooks Snippet (reactsnippet)
+  */
+  "Use_State": {
+    "description": "Use_State",
+    "prefix": "ruh_use_state",
+    "body": [
+      "const [${1}, set${1/(.*)/${1:/capitalize}/}] = ${0:useState}(${2})"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+  },
+  "Use_Memo": {
+    "description": "Use_State",
+    "prefix": "ruh_use_state",
+    "body": [
+      "${0:useMemo}(() => {",
+      "  // TODO : define value",
+      "}, [])",
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+  },
+  "Use_Ref": {
+    "description": "Use_Ref",
+    "prefix": "ruh_use_ref",
+    "body": [
+      "const ${1} = ${0:useRef}(${2})"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+  },
+  "Use_Effect": {
+    "description": "Use_Effect",
+    "prefix": "ruh_use_effect",
+    "body": [
+      "${0:useEffect}(() => {",
+      "  // TODO: define logic",
       "",
       "  return () => {",
-      "    ${2:second}",
+      "    // ? need cleaner",
       "  }",
-      "}, [${3:third}])",
-      ""
+      "}, [])",
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
-  "reactUseContext": {
-    "description": "reactUseContext",
-    "prefix": "useContextSnippet",
+  "Use_Context": {
+    "description": "Use_Context",
+    "prefix": "ruh_use_context",
     "body": [
-      "const ${1:first} = useContext(${2:second})"
+      "const {${1}} = ${0:use${2/(.*)/${2:/capitalize}/}Context}()"
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
-  "importReactHook": {
-    "description": "importCreateUseContext",
-    "prefix": "imrh",
-    "body": [
-      "import { useState, useEffect, useCallback, useMemo } from \"react\";"
-    ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
-  },
-  "reactCreateRoot": {
-    "description": "reactCreateRoot",
-    "prefix": "rcr",
+  /** 
+  * * React Create Snippet (reactsnippet)
+  */
+  "Create_Root": {
+    "description": "Create_Root",
+    "prefix": "rc_root",
     "body": [
       "import { StrictMode } from \"react\";",
       "import { createRoot } from \"react-dom/client\";",
@@ -125,9 +272,9 @@
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
-  "reactCreateContext": {
-    "description": "reactCreateContext",
-    "prefix": "rcc",
+  "Create_Context": {
+    "description": "Create_Context",
+    "prefix": "rc_context",
     "body": [
       "export const ${1}Context = createContext(null);",
       "",
@@ -139,50 +286,6 @@
       "  return context;",
       "}"
     ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
-  },
-  "reactContextProvider": {
-    "description": "reactContextProvider",
-    "prefix": "rcp",
-    "body": [
-      "import { ${TM_FILENAME_BASE/(.*)Provider/$1Context/} } from \"./${TM_FILENAME_BASE/(.*)Provider/$1Context/}.jsx\";",
-      "",
-      "export default function ${TM_FILENAME_BASE}({ children }) {",
-      "  const ${TM_FILENAME_BASE/(.*)Provider/${1:/downcase}/}Value = undefined; // TODO: ganti sesuai state/logic",
-      "",
-      "  return (",
-      "    <${TM_FILENAME_BASE/(.*)Provider/$1Context/}.Provider value={${TM_FILENAME_BASE/(.*)Provider/${1:/downcase}/}Value}>",
-      "      {children}",
-      "    </${TM_FILENAME_BASE/(.*)Provider/$1Context/}.Provider>",
-      "  );",
-      "}"
-    ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
-  },
-  "ReactComponent": {
-    "prefix": "rfc",
-    "body": [
-      "export default function ${TM_FILENAME_BASE}() {",
-      "  return (",
-      "    <${0}>",
-      "    ${TM_FILENAME_BASE}",
-      "    </${0}>",
-      "  )",
-      "}",
-    ],
-  },
-  "ReactIndexComponent": {
-    "prefix": "rfci",
-    "body": [
-      "export default function ${1}() {",
-      "  return (",
-      "    <${0}>",
-      "    ${1}",
-      "    </${0}>",
-      "  )",
-      "}",
-    ],
-    "description": "Creates a React Functional Component with ES7 module system",
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
 }
