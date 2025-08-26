@@ -137,9 +137,9 @@
   },
   "slice": {
     "description": "slice",
-    "prefix": "str_slice",
+    "prefix": "str_arr_slice",
     "body": [
-      "${1:string}.slice(${2:beginIndex}, ${0:endIndex})"
+      "${1:string|array}.slice(${2:beginIndex}, ${0:endIndex})"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact"
   },
@@ -215,6 +215,70 @@
     "prefix": "arr_concat",
     "body": [
       "${1:array}.concat(${0:...valueN})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "copy_within": {
+    "description": "copy_within",
+    "prefix": "arr_copy_within",
+    "body": [
+      "${1:array}.copyWithin(${1:targetStartIndex}, ${2:startCopyIndex}, ${3:endCopyIndex})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "entries": {
+    "description": "entries",
+    "prefix": "arr_entries",
+    "body": [
+      "${0:array}.entries()"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "every": {
+    "description": "every",
+    "prefix": "arr_every",
+    "body": [
+      "${1:array}.every((element, index) => ${0})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "fill": {
+    "description": "fill",
+    "prefix": "arr_fill",
+    "body": [
+      "${1:array}.fill(${1:value}, ${2:startIndex}, ${3:end[exclusiveIndex]})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "filter": {
+    "description": "filter",
+    "prefix": "arr_filter",
+    "body": [
+      "${1:array}.filter((element, index) => ${0})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "find": {
+    "description": "find",
+    "prefix": "arr_find",
+    "body": [
+      "${1:array}.find((element) => ${0})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "find_index": {
+    "description": "find_index",
+    "prefix": "arr_find_index",
+    "body": [
+      "${1:array}.findIndex((element) => ${0})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "flat": {
+    "description": "flat",
+    "prefix": "arr_flat",
+    "body": [
+      "${1:array}.flat(${0:Infinity})"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact"
   },
