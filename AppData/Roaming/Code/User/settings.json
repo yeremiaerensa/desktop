@@ -262,7 +262,7 @@
       "strings": true // Saran otomatis saat tulis string, misal className
     },
     "editor.wordBasedSuggestions": "off", // Matikan saran kata dari dokumen lain, biar fokus Tailwind class
-    "editor.snippetSuggestions": "top" // Snippet saran muncul di atas
+    "editor.snippetSuggestions": "bottom" // Snippet saran muncul di atas
   },
   "editor.wordWrap": "on",
   "better-comments.tags": [
@@ -320,5 +320,8 @@
       "bold": false,
       "italic": false
     }
-  ]
+  ],
+  "[javascript]": {
+    "editor.snippets.codeActions.enabled": true
+  }
 }
