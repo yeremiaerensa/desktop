@@ -1,16 +1,41 @@
 {
   /** 
-  * * JavaScript Regex Pattern Snippet (jssnippet) 
+  * * JavaScript Regex Snippet (jssnippet) 
   */
   "regex_pattern": {
     "description": "char_at",
     "prefix": "rgx_pattern",
     "body": [
       "// @param /\\d+/ (Satu atau lebih angka)",
+      "// @param /^\\d+$/ (String berisi hanya angka)",
       "// @param /[a-z]+/ (Satu atau lebih huruf kecil)",
-      "// @param /[A-Za-z0-9]+/ (Huruf besar/kecil + angka)",
-      "// @param /\\d+/ (Satu atau lebih angka)",
-      "// @param /\\d+/ (Satu atau lebih angka)",
+      "// @param /^[A-Za-z0-9]+$/ (Huruf besar/kecil + angka)",
+      "// @param /^[A-Za-z]+$/ (String Hanya huruf besar atau kecil)",
+      "// @param /^\\d{3}-\\d{4}$/ (3angka-4angka)",
+      "// * flag g (Cari semua kecocokan, bukan cuma yang pertama)",
+      "// * flag i (Abaikan huruf besar/kecil)",
+      "// * flag \\d (Digit angka 0–9)",
+      "// * flag \\D (Bukan digit)",
+      "// * flag \\w ([a-zA-Z0-9_])",
+      "// * flag \\W (Bukan word character)",
+      "// * flag \\s (Spasi, tab (\\t), newline (\\n)",
+      "// * flag \\S (Bukan spasi)",
+      "// * flag . (Bukan word character)",
+      "// * flag + (Satu atau lebih, \\d+ cocok '123')",
+      "// * flag * (Nol atau lebih, \\d* cocok '', '1')",
+      "// * flag ? (Nol atau satu, \\d? cocok '', '1')",
+      "// * flag {n} (Tepat n kali, \\d{3} cocok '123')",
+      "// * flag {n,} (Tepat n kali , \\d{2,} cocok '123')",
+      "// * flag {n,m} (Antara n sampai m kali, \\d{2,4} cocok '12', '123')",
+      "// * flag ^ (Awal string, ^a cocok 'abc' tapi bukan 'ba')",
+      "// * flag $ (Akhir string, z$ cocok 'xyz' tapi bukan 'za')",
+      "// * flag \\b (Antara n sampai m kali, \\bis\\b cocok 'this is it')",
+      "// * flag \\B (Antara n sampai m kali, \\Bis\\B cocok 'mist' (dalam kata))",
+      "// * flag \\B (Antara n sampai m kali, \\Bis\\B cocok 'mist' (dalam kata))",
+      "// * flag \\B (Antara n sampai m kali, \\Bis\\B cocok 'mist' (dalam kata))",
+      "// * flag [^]+ (apa aja kecuali yang di dalam bracket,[^abc] 'd', '1', dsb",
+      "// * flag []+ (harus salah satu yang di dalam bracket, [abc] 'a', 'b', 'c'))",
+      "",
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact"
   },
@@ -21,7 +46,7 @@
     "description": "char_at",
     "prefix": "str_char_at",
     "body": [
-      "${1}.charAt(${0})"
+      "${1:string}.charAt(${0:index})"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact"
   },
@@ -29,7 +54,7 @@
     "description": "code_point_at",
     "prefix": "str_code_point_at",
     "body": [
-      "${1}.codePointAt(${0})"
+      "${1:string}.codePointAt(${0:index})"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact"
   },
@@ -37,7 +62,7 @@
     "description": "includes",
     "prefix": "str_includes",
     "body": [
-      "${1}.includes(\"${0}\")"
+      "${1:string}.includes(\"${0}\")"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact"
   },
@@ -45,15 +70,23 @@
     "description": "end_with",
     "prefix": "str_end_with",
     "body": [
-      "${1}.endsWith(\"${0}\")"
+      "${1:string}.endsWith(\"${0:substring}\")"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact"
   },
-  "last_index_off": {
-    "description": "last_index_off",
-    "prefix": "str_last_index_off",
+  "index_of": {
+    "description": "index_of",
+    "prefix": "str_index_of",
     "body": [
-      "${1}.lastIndexOf(\"${0}\")"
+      "${0:string}.lastIndexOf(\"${1:value}\",${2:startIndex})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "last_index_of": {
+    "description": "last_index_of",
+    "prefix": "str_last_index_of",
+    "body": [
+      "${0:string}.lastIndexOf(\"${1:value}\")"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact"
   },
@@ -70,9 +103,121 @@
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact"
   },
+  "match": {
+    "description": "match",
+    "prefix": "str_match",
+    "body": [
+      "${1:string}.match(${0:rgx})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "pad": {
+    "description": "pad",
+    "prefix": "str_pad",
+    "body": [
+      "${0:string}.pad${1:End/Start}(${2:length}, \"${3:padString}\")"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "repeat": {
+    "description": "repeat",
+    "prefix": "str_repeat",
+    "body": [
+      "${0:string}.repeat(${1:count})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "replace": {
+    "description": "replace",
+    "prefix": "str_replace",
+    "body": [
+      "${1:string}.replace(\"${2:rgx}\", (matchChar) => ${0:logic})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "slice": {
+    "description": "slice",
+    "prefix": "str_slice",
+    "body": [
+      "${1:string}.slice(${2:beginIndex}, ${0:endIndex})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "split": {
+    "description": "split",
+    "prefix": "str_split",
+    "body": [
+      "${1:string}.slice(${2:separator|rgx}, ${0:limit})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "starts_with": {
+    "description": "starts_with",
+    "prefix": "str_split",
+    "body": [
+      "${1:string}.slice(${2:searchString}, ${0:indexStart})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "substring": {
+    "description": "starts_with",
+    "prefix": "str_split",
+    "body": [
+      "${1:string}.slice(${2:indexStart}, ${0:indexEnd})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "to_lower_case": {
+    "description": "to_lower_case",
+    "prefix": "str_to_lower_case",
+    "body": [
+      "${0:string}.toLowerCase()"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "to_upper_case": {
+    "description": "to_upper_case",
+    "prefix": "str_to_upper_case",
+    "body": [
+      "${0:string}.toUpperCase()"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "to_string": {
+    "description": "to_string",
+    "prefix": "str_to_string",
+    "body": [
+      "String(${0:value})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "trim": {
+    "description": "trim",
+    "prefix": "str_trim",
+    "body": [
+      "${1:string}.trim${1:Start/End}()"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
   /** 
   * * JavaScript Array Snippet (jssnippet)
   */
+  "at": {
+    "description": "at",
+    "prefix": "arr_at",
+    "body": [
+      "${1:array}.at(${0:index})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "concat": {
+    "description": "concat",
+    "prefix": "arr_concat",
+    "body": [
+      "${1:array}.concat(${0:...valueN})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
   "map_array": {
     "description": "map_array",
     "prefix": "arr_map",

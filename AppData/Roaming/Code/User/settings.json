@@ -161,6 +161,7 @@
     "isset",
     "json_decode",
     "json_encode",
+    "jssnippet",
     "loong",
     "ltrim",
     "microtime",
