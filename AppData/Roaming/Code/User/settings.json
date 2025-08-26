@@ -206,6 +206,7 @@
     "ucfirst",
     "unlink",
     "unset",
+    "unshift",
     "urlencode",
     "var_dump",
     "vite",

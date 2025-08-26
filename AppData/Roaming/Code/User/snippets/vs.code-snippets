@@ -4,7 +4,7 @@
   */
   "includes": {
     "description": "check whether array include searchElement | value \n return boolean \n @secondParam startPosition | index | number",
-    "prefix": "str|arr_includes",
+    "prefix": "arr_or_str_includes",
     "body": [
       "${1:string|array}.includes(${0:searchElement|value})"
     ],
@@ -12,7 +12,7 @@
   },
   "index_of": {
     "description": "search index from value | element \n return index | number \n @secondParam startPosition | index | number",
-    "prefix": "str|arr_index_of",
+    "prefix": "arr_or_str_index_of",
     "body": [
       "${0:string}.indexOf(\"${1:value}\")"
     ],
@@ -20,7 +20,7 @@
   },
   "last_index_of": {
     "description": "search last index from value|element \n @secondParam start index| number",
-    "prefix": "str|arr_last_index_of",
+    "prefix": "arr_or_str_last_index_of",
     "body": [
       "${0:string|array}.lastIndexOf(${1:value|element})"
     ],
@@ -28,7 +28,7 @@
   },
   "slice": {
     "description": "copy from begin to the end \n no params it copy all \n return copied value|elements as new string|array",
-    "prefix": "str|arr_slice",
+    "prefix": "arr_or_str_slice",
     "body": [
       "${1:string|array}.slice(${2:beginIndex}, ${0:exclusiveEndIndex})"
     ],
@@ -124,9 +124,9 @@
   },
   "matchAll": {
     "description": "match based on \n return nested array",
-    "prefix": "str_match",
+    "prefix": "str_match_all",
     "body": [
-      "[...${1:string}.match(${0:rgx})]"
+      "[...${1:string}.matchAll(${0:rgx})]"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact"
   },
@@ -172,7 +172,7 @@
   },
   "starts_with": {
     "description": "check whether string start with searchString \n @SecondParam indexStart | number \n return boolean",
-    "prefix": "str_split",
+    "prefix": "str_starts_with",
     "body": [
       "${1:string}.startsWith(${0:searchString})"
     ],
@@ -278,18 +278,34 @@
     "scope": "typescript, typescriptreact, javascript, javascriptreact"
   },
   "find": {
-    "description": "return first element passed test function",
+    "description": "@secondCallbackParams index|number \n @thirdCallbackParams array \n return first element as need in callback",
     "prefix": "arr_find",
     "body": [
       "${1:array}.find((element) => ${0})"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact"
   },
+  "find_last": {
+    "description": "@secondCallbackParams index|number \n @thirdCallbackParams array \n return last element as need in callback",
+    "prefix": "arr_find_last",
+    "body": [
+      "${1:array}.findLast((element) => ${0})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
   "find_index": {
-    "description": "return first element index passed test function",
+    "description": "@secondCallbackParams index|number \n @thirdCallbackParams array \n return first element index as need in callback",
     "prefix": "arr_find_index",
     "body": [
       "${1:array}.findIndex((element) => ${0})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "find_last_index": {
+    "description": "@secondCallbackParams index|number \n @thirdCallbackParams array \n return last element index as need in callback",
+    "prefix": "arr_find_last_index",
+    "body": [
+      "${1:array}.findLastIndex((element) => ${0})"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact"
   },
@@ -314,6 +330,14 @@
     "prefix": "arr_for_each",
     "body": [
       "${1:array}.forEach((element${2:, index}) => ${0})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "from": {
+    "description": "@firstParam arrayLike|string|{length : count} to initialArray \n @secondParam mapCallback \n create and return new array",
+    "prefix": "arr_from",
+    "body": [
+      "Array.from(${1:arrayLike|string|{length : count}}, (element${2:, index}) => ${0})"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact"
   },
@@ -350,10 +374,10 @@
     "scope": "typescript, typescriptreact, javascript, javascriptreact"
   },
   "push": {
-    "description": "add element and return current array length | number (mutator function)",
+    "description": "add element to last index and return current array length | number (mutator function)",
     "prefix": "arr_push",
     "body": [
-      "${0}.push()"
+      "${1}.push(${0:element})"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact"
   },
@@ -394,6 +418,62 @@
     "prefix": "arr_some",
     "body": [
       "${1:array}.some((element${2:, index}) => ${0})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "sort": {
+    "description": "sorting element according with compare callback | locale_compare \n default/no params ascending sort \n return sorted array (mutator function)",
+    "prefix": "arr_sort",
+    "body": [
+      "${1:array}.sort((a,b) => ${0:a.localeCompare(b)})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "splice": {
+    "description": "delete or add element array \n return removed element (mutator function) | array \n @useParam 0 for delete count no delete action",
+    "prefix": "arr_splice",
+    "body": [
+      "${1:array}.splice(${2:startAction}, ${3:deleteCount}, ${4:...addValue})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "to_reversed": {
+    "description": "reverse array order \n return reversed array",
+    "prefix": "arr_to_reversed",
+    "body": [
+      "${0}.toReversed()"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "to_sorted": {
+    "description": "sorting element according with compare callback | locale_compare \n default/no params ascending sort \n return sorted array",
+    "prefix": "arr_to_sorted",
+    "body": [
+      "${1:array}.toSorted((a,b) => ${0:a.localeCompare(b)})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "to_spliced": {
+    "description": "delete or add element array \n return removed element | array \n @useParam 0 for delete count no delete action",
+    "prefix": "arr_to_spliced",
+    "body": [
+      "${1:array}.toSpliced(${2:startIndexAction}, ${3:deleteCount}, ${4:...addValue})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "unshift": {
+    "description": "add element to first index and return current array length | number (mutator function)",
+    "prefix": "arr_unshift",
+    "body": [
+      "${1}.unshift(${0:element})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "with": {
+    "description": "return new array with 1 new element from new element at index target",
+    "prefix": "arr_with",
+    "body": [
+      "${1}.with(${2:indexTarget}, ${0:newElement})"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact"
   },
@@ -452,7 +532,7 @@
     "prefix": "fn_capitalize",
     "body": [
       "const ${0:capitalize} = (string) => {",
-      "  string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()",
+      "  return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()",
       "}"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact"
@@ -494,7 +574,7 @@
     "body": [
       "for (let i = 0; i < ${1}; i++) {",
       "  ${0}",
-      "",
+      "}",
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact"
   },
@@ -577,6 +657,7 @@
       "",
       "export default ${TM_FILENAME_BASE}"
     ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
   },
   "Function_Provider_Component": {
     "description": "Function_Provider_Component",
