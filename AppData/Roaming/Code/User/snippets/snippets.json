@@ -20,11 +20,4 @@
       "typescript, typescriptreact, javascript, javascriptreact"
     ],
   },
-  "Scope_FN_JavaScript": {
-    "description": "Scope_FN_JavaScript",
-    "prefix": "prefix_",
-    "body": [
-      "javascript, javascriptreact"
-    ],
-  },
 }

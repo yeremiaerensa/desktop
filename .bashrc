@@ -15,7 +15,7 @@ alias new-script='code ~/Documents/Coding/Script/test-script.sh'
 
 alias code-folder='code . --reuse-window'
 
-alias snippet='code ~/AppData/Roaming/Code/User/snippets/.code-snippets'
+alias snippet='code ~/AppData/Roaming/Code/User/snippets/vs.code-snippets'
 alias js-snippet='code ~/.vscode/extensions/dsznajder.es7-react-js-snippets-4.4.3/lib/snippets/generated.json'
 alias js-snippet-list='explorer "https://github.com/r5n-labs/vscode-react-javascript-snippets/blob/185bb91a0b692c54136663464e8225872c434637/docs/Snippets.md"'
 

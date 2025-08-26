@@ -6,7 +6,11 @@
     "description": "char_at",
     "prefix": "rgx_pattern",
     "body": [
-      "// @param /\\d+/ "
+      "// @param /\\d+/ (Satu atau lebih angka)",
+      "// @param /[a-z]+/ (Satu atau lebih huruf kecil)",
+      "// @param /[A-Za-z0-9]+/ (Huruf besar/kecil + angka)",
+      "// @param /\\d+/ (Satu atau lebih angka)",
+      "// @param /\\d+/ (Satu atau lebih angka)",
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact"
   },
