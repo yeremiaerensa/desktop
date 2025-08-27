@@ -3,20 +3,20 @@
   * * JavaScript Array | String Snippet (jssnippet) 
   */
   "includes": {
-    "description": "check whether array include searchElement | value \n return boolean \n @secondParam startPosition | index | number",
     "prefix": "arr_or_str_includes",
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
     "body": [
-      "${1:string|array}.includes(${0:searchElement|value})"
+      "${1:string|array}.includes(${0:searchElement|value :any})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "description": "return boolean \n @secondParam startPosition/index :number \n check whether array include searchElement/value",
   },
   "index_of": {
-    "description": "search index from value | element \n return index | number \n @secondParam startPosition | index | number",
     "prefix": "arr_or_str_index_of",
     "body": [
       "${0:string}.indexOf(\"${1:value}\")"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "description": "get index from value | element \n return index :number \n @secondParam startPosition | index | number",
   },
   "last_index_of": {
     "description": "search last index from value|element \n @secondParam start index| number",
@@ -478,7 +478,47 @@
     "scope": "typescript, typescriptreact, javascript, javascriptreact"
   },
   /** 
-  * * JavaScript Import Snippet (jssnippet)
+  *  ! markerr
+  * * JavaScript Object Snippet (jssnippet) 
+  */
+  "assign": {
+    "description": "(mutable function) \n return object already added source | object \n @firstParam is object target|{} new object \n @secondParams ...values",
+    "prefix": "obj_assign",
+    "body": [
+      "Object.assign(${1:target|{}}, ${0:source1,source2,....sourceN source is object})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+  },
+  "create": {
+    "prefix": "obj_create",
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "body": [
+      "const ${1:obj} = Object.create(${2:prototype}, ${3:? propertiObject (snippetAble)})"
+    ],
+    "description": "(immutable function)\nReturns object with prototype.\n@secondParam propertiesObject defines properties on the prototype.\nSecond param example:\nproperti: {\n  get() {\n    return value; // define default value here\n  },\n  set(value) {\n    this.properti = value; // to set properti value\n  },\n  enumerable: boolean; // define if shows during iteration\n  configurable: boolean; // define if can be reconfigured or deleted\n}",
+  },
+  "properti_object": {
+    "prefix": "obj_properti_object",
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "body": [
+      "{",
+      "  ${3:propertyName}: {",
+      "    enumerable: ${4:true}, // show in iteration",
+      "    configurable: ${5:true}, // can be redefined/deleted via defineProperty",
+      "    get() {",
+      "    return ${6:defaultValue};",
+      "    },",
+      "    set(value) {",
+      "     this.${3:propertyName} = value;",
+      "     }",
+      "  }",
+      "}",
+    ],
+    "description": "(@secondParam for function Object.create)",
+  },
+  /** 
+  *  
+  * * JavaScript Import Snippet (jssnippet) 
   */
   "Import_Default": {
     "description": "Import_Default",

@@ -4,12 +4,12 @@
     "prefix": "snippet",
     "body": [
       "\"${1:Snippet_Name}\": {",
-      "  \"description\": \"${1:Snippet_Name}\",",
-      "  \"prefix\": \"${3}_${4}\",",
+      "  \"prefix\": \"obj_${1}\",",
       "  \"body\": [",
       "    \"$0\"",
       "  ],",
-      "  \"scope\" : \"${2}\"",
+      "  \"scope\" : \"typescript, typescriptreact, javascript, javascriptreact\",",
+      "  \"description\": \"(${2: mutable | immutable} function) \\n return ${3} \\n${4:option param?}\",",
       "},"
     ],
   },
@@ -18,6 +18,34 @@
     "prefix": "scp_javascript",
     "body": [
       "typescript, typescriptreact, javascript, javascriptreact"
+    ],
+  },
+  "text_any": {
+    "description": "when text any",
+    "prefix": "txt_any",
+    "body": [
+      ":any"
+    ],
+  },
+  "text_boolean": {
+    "description": "when text boolean",
+    "prefix": "txt_boolean",
+    "body": [
+      ":boolean"
+    ],
+  },
+  "text_string": {
+    "description": "when text string",
+    "prefix": "txt_string",
+    "body": [
+      ":string"
+    ],
+  },
+  "text_object": {
+    "description": "when text object",
+    "prefix": "txt_object",
+    "body": [
+      ":object"
     ],
   },
 }

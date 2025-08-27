@@ -1,7 +1,7 @@
 alias back='cd ..'
 alias file='touch'
 alias folder='mkdir'
-alias Latihan='cd ~/Documents/Coding/Latihan'
+alias coding='cd ~/Documents/Coding'
 
 alias project-dir='cd ~/Documents/Coding/Project'
 alias tutorial-dir='cd ~/Documents/Coding/Tutorial'
