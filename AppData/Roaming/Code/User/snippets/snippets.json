@@ -1,6 +1,6 @@
 {
   "Snippet_Template": {
-    "description": "Snippet_Template",
+    "description": "Snippet template generator",
     "prefix": "snippet",
     "body": [
       "\"${1:Snippet_Name}\": {",
@@ -8,10 +8,10 @@
       "  \"body\": [",
       "    \"$0\"",
       "  ],",
-      "  \"scope\" : \"typescript, typescriptreact, javascript, javascriptreact\",",
-      "  \"description\": \"(${2: mutable | immutable} function) \\n return ${3} \\n${4:option param?}\",",
+      "  \"scope\": \"typescript,typescriptreact,javascript,javascriptreact\",",
+      "  \"description\": \"(${2:type}) \\\\n @return ${3:info :type} ${5}\"",
       "},"
-    ],
+    ]
   },
   "Scope_JavaScript": {
     "description": "Scope_JavaScript",
@@ -27,11 +27,39 @@
       ":any"
     ],
   },
+  "text_array": {
+    "description": "when text array",
+    "prefix": "txt_array",
+    "body": [
+      ":array"
+    ],
+  },
   "text_boolean": {
     "description": "when text boolean",
     "prefix": "txt_boolean",
     "body": [
       ":boolean"
+    ],
+  },
+  "text_enter": {
+    "description": "when text enter",
+    "prefix": "txt_enter",
+    "body": [
+      "\\\\n "
+    ],
+  },
+  "text_eol": {
+    "description": "when text enter",
+    "prefix": "txt_eol",
+    "body": [
+      "\\\\n\\\\n"
+    ],
+  },
+  "text_end": {
+    "description": "when text enter",
+    "prefix": "txt_end",
+    "body": [
+      "\\${0}"
     ],
   },
   "text_string": {
@@ -41,11 +69,130 @@
       ":string"
     ],
   },
+  "text_number": {
+    "description": "when text number",
+    "prefix": "txt_number",
+    "body": [
+      ":number"
+    ],
+  },
   "text_object": {
     "description": "when text object",
     "prefix": "txt_object",
     "body": [
       ":object"
+    ],
+  },
+  "text_function": {
+    "description": "when text fn",
+    "prefix": "txt_fn",
+    "body": [
+      ":fn"
+    ],
+  },
+  "text_description": {
+    "description": "when text description",
+    "prefix": "txt_description",
+    "body": [
+      "(${2:type}) \\\\n @return ${3:info :type} ${0}"
+    ],
+  },
+  "text_from_index": {
+    "description": "when text from index",
+    "prefix": "txt_from_index",
+    "body": [
+      "\\\\n @${1:second}Params fromIndex ?:number [define: search starting point] ${0}"
+    ],
+  },
+  "text_exclusiveIndex": {
+    "description": "when text exclusiveIndex",
+    "prefix": "txt_exclusiveIndex",
+    "body": [
+      "\\\\n @Params exclusiveIndex :number [define: deadline but not including (index - 1)] ${0}"
+    ],
+  },
+  "text_not_match": {
+    "description": "when text -1",
+    "prefix": "txt_not",
+    "body": [
+      "\\\\n if not match will return ${0} \\\\n\\\\n"
+    ],
+  },
+  "text_params": {
+    "description": "when text params",
+    "prefix": "txt_params",
+    "body": [
+      "\\\\n @params ${1:param_name} ${2:param_type} [define : ${3}] ${0}"
+    ],
+  },
+  "text_props": {
+    "description": "when text params",
+    "prefix": "txt_props",
+    "body": [
+      "\\\\n @props ${1:props_name} [define : ${3}] ${0}"
+    ],
+  },
+  "text_value": {
+    "description": "when text params",
+    "prefix": "txt_value",
+    "body": [
+      "\\\\n @value ${1:props_name} [define : ${3}] ${0}"
+    ],
+  },
+  "text_callbackParams": {
+    "description": "when text callbackParams",
+    "prefix": "txt_callbackParams",
+    "body": [
+      "\\\\n @callbackParams ${1:param_name} ${2:param_type} [define : ${3}] ${0}"
+    ],
+  },
+  "text_secondParams": {
+    "description": "when text secondParams",
+    "prefix": "txt_secondParams",
+    "body": [
+      "\\\\n @secondParams ${1:param_name} ?${2:param_type} [define : ${3}] ${0}"
+    ],
+  },
+  "text_callbackSecondParams": {
+    "description": "when text callbackSecondParams",
+    "prefix": "txt_callbackSecondParams",
+    "body": [
+      "\\\\n @callbackSecondParams ${1:param_name} ?${2:param_type} [define : ${3}] ${0}"
+    ],
+  },
+  "text_thirdParams": {
+    "description": "when text thirdParams",
+    "prefix": "txt_thirdParams",
+    "body": [
+      "\\\\n @thirdParams ${1:param_name} ?${2:param_typed [define : ${3}] ${0}"
+    ],
+  },
+  "text_callbackThirdParams": {
+    "description": "when text callbackThirdParams",
+    "prefix": "txt_callbackThirdParams",
+    "body": [
+      "\\\\n @callbackThirdParams ${1:param_name} ?${2:param_typed [define : ${3}] ${0}"
+    ],
+  },
+  "text_pure_function": {
+    "description": "when text const",
+    "prefix": "txt_pure_function",
+    "body": [
+      "Pure Function | Immutable"
+    ],
+  },
+  "text_mutator": {
+    "description": "when text const",
+    "prefix": "txt_mutator",
+    "body": [
+      "Mutator Function | Mutable"
+    ],
+  },
+  "text_docs": {
+    "description": "when text docs",
+    "prefix": "txt_docs",
+    "body": [
+      "\\\\n\\\\n Docs : \\\\n ${0}"
     ],
   },
 }

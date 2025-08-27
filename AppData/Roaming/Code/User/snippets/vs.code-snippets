@@ -1,38 +1,57 @@
 {
   /** 
+  * * JavaScript Snippet (jssnippet) 
+  */
+  "const": {
+    "prefix": "const",
+    "body": [
+      "const ${1:name} = ${0}"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "(writer) \n Return: text"
+  },
+  /** 
   * * JavaScript Array | String Snippet (jssnippet) 
   */
+  "concat": {
+    "prefix": "arr_or_str_concat",
+    "body": [
+      "${1:array|string}.concat(${0:...valueN :any|string})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "description": "(Pure Function | Immutable) \n @return concatenated :array|string \n\n Docs : \n join 2 or more array or string and return new joined array or string",
+  },
   "includes": {
     "prefix": "arr_or_str_includes",
     "scope": "typescript, typescriptreact, javascript, javascriptreact",
     "body": [
-      "${1:string|array}.includes(${0:searchElement|value :any})"
+      "${0}${1:array|string}.includes(${2:element|substring :any|string})"
     ],
-    "description": "return boolean \n @secondParam startPosition/index :number \n check whether array include searchElement/value",
+    "description": "(Pure Function | Immutable) \n @return isIncludes :boolean \n @secondParams fromIndex ?:number [define: search starting point] \n\n Docs : \n to check whether include the value",
   },
   "index_of": {
     "prefix": "arr_or_str_index_of",
     "body": [
-      "${0:string}.indexOf(\"${1:value}\")"
+      "${0}${1:array|string}.indexOf(${2:element|character :any|string})"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact",
-    "description": "get index from value | element \n return index :number \n @secondParam startPosition | index | number",
+    "description": "(Pure Function | Immutable) \n @return index|-1 :number \n @secondParams fromIndex ?:number [define: search starting point] \n\n Docs : \n to get index from the first element or character discovered \n if not found will return -1",
   },
   "last_index_of": {
-    "description": "search last index from value|element \n @secondParam start index| number",
     "prefix": "arr_or_str_last_index_of",
     "body": [
-      "${0:string|array}.lastIndexOf(${1:value|element})"
+      "${0}${1:array|string}.lastIndexOf(${2:element|character :any|string})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "description": "(Pure Function | Immutable) \n @return index|-1 :number \n @secondParams fromIndex ?:number [define: search starting point] \n\n Docs : \n to get index from the last element or character discovered \n if not found will return -1",
   },
   "slice": {
-    "description": "copy from begin to the end \n no params it copy all \n return copied value|elements as new string|array",
     "prefix": "arr_or_str_slice",
     "body": [
-      "${1:string|array}.slice(${2:beginIndex}, ${0:exclusiveEndIndex})"
+      "${0}${1:array|string}.slice(${2:startIndex :number})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "description": "(Pure Function | Immutable) \n @return sliced :array|string \n @secondParams exclusiveIndex ?:number [define : end of slice]  \n @Params exclusiveIndex :number [define: deadline but not including (index - 1)]",
   },
   /** 
   * * JavaScript Regex Snippet (jssnippet) 
@@ -72,55 +91,55 @@
       "// * flag []+ (harus salah satu yang di dalam bracket, [abc] 'a', 'b', 'c'))",
       "",
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   /** 
   * * JavaScript String Snippet (jssnippet)
   */
   "char_at": {
-    "description": "return character according to index | string",
     "prefix": "str_char_at",
     "body": [
-      "${1:string}.charAt(${0:index})"
+      "${0}${1:string}.charAt(${2:index :number})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "description": "(Pure Function | Immutable) \n @return character :string \n\n Docs : \n get character of string from index \n if not match will return \"\" \n\n",
   },
   "code_point_at": {
-    "description": "return character code according to index | number",
     "prefix": "str_code_point_at",
     "body": [
-      "${1:string}.codePointAt(${0:index})"
+      "${0}${1:string}.codePointAt(${2:index :number})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "description": "(Pure Function | Immutable) \n @return unicode :number \n\n Docs : \n get unicode from character according the index ",
   },
   "end_with": {
-    "description": "return boolean , second @param is length",
     "prefix": "str_end_with",
     "body": [
-      "${1:string}.endsWith(\"${0:substring}\")"
+      "${1:string}.endsWith(\"${0:substring :string}\")"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "description": "(Pure Function | Immutable) \n @return isEndsWith :boolean \n @secondParams exclusiveIndex ?:number [define : inspection area limits] \n @Params exclusiveIndex :number [define: deadline but not including (index - 1)] \n\n Docs : \n inspect string is end with substring or not",
   },
   "locale_compare": {
-    "description": "compare string according the option",
     "prefix": "str_locale_compare",
     "body": [
-      "a.localeCompare(b, \"id\", {",
-      "  sensitivity: \"${1:base/accent/case/variant}\",",
-      "  ignorePunctuation: ${2:true/false},",
-      "  numeric: ${3:true/false},",
-      "  caseFirst: \"${0:upper/lower}\"",
+      "${0}${1:a}.localeCompare(${2:b}, \"id\", {",
+      "  sensitivity: \"${3:base|accent|case|variant}\",",
+      "  ignorePunctuation: ${4:true|false},",
+      "  numeric: ${5:true|false},",
+      "  caseFirst: \"${6:upper|lower}\"",
       "})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "description": "(Pure Function | Immutable) \n @return -1|0|1 :number \n @value base [define : normal no base on] \n @value accent [define : base on accent (a ≠ á)] \n @value case [define : base on case (a ≠ A, but a == á)] \n @value variant [define : base on accent and case] \n @props ignorePunctuation [define : isIgnorePunctuation (false : \"a-b\" ≠ \"ab\")] \n @props numeric [define : isNumeric (true : \"10\" > \"2\")] \n @value upper [define : capital are sorted first] \n @value lower [define : lower are sorted first] \n\n Docs : \n value -1 is before position,0 is same position, 1 is after position \n sensitive default variant \n ignorePunctuation default false \n numeric default false \n caseFirst default false (locale-dependent)",
   },
   "match": {
-    "description": "match based on \n return array",
     "prefix": "str_match",
     "body": [
-      "${1:string}.match(${0:rgx})"
+      "${0}${1:string}.match(${2:rgx})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "description": "(Pure Function | Immutable) \n @return info :type ",
   },
   "matchAll": {
     "description": "match based on \n return nested array",
@@ -128,7 +147,7 @@
     "body": [
       "[...${1:string}.matchAll(${0:rgx})]"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "pad": {
     "description": "pad to end or start \n return new string",
@@ -136,7 +155,7 @@
     "body": [
       "${0:string}.pad${1:End/Start}(${2:length}, \"${3:padString}\")"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "repeat": {
     "description": "copy previous string as many count \n return new string ",
@@ -144,7 +163,7 @@
     "body": [
       "${0:string}.repeat(${1:count})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "replace": {
     "description": "replace target(rgx|substr), with newSubStr|function result \n fn(matchChar) => logic \n return string (new)",
@@ -152,7 +171,7 @@
     "body": [
       "${1:string}.replace(\"${2:rgx|substr}\", (matchChar) => ${0:logic})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "search": {
     "description": "return index from regexp \n return number",
@@ -160,7 +179,7 @@
     "body": [
       "${0:string}.search(/${1:rgx}/)"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "split": {
     "description": "split string to string element for array according separator \n @param limit for array length \n return new array",
@@ -168,7 +187,7 @@
     "body": [
       "${1:string}.split(${2:separator|rgx})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "starts_with": {
     "description": "check whether string start with searchString \n @SecondParam indexStart | number \n return boolean",
@@ -176,7 +195,7 @@
     "body": [
       "${1:string}.startsWith(${0:searchString})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "substring": {
     "description": "return subset | new string \n from exclusive index",
@@ -184,7 +203,7 @@
     "body": [
       "${1:string}.substring(${2:indexStart}, ${0:exclusiveIndexEnd})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "to_lower_case": {
     "description": "return lower string",
@@ -192,7 +211,7 @@
     "body": [
       "${0:string}.toLowerCase()"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "to_upper_case": {
     "description": "return upper string",
@@ -200,7 +219,7 @@
     "body": [
       "${0:string}.toUpperCase()"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "to_string": {
     "description": "convert di string",
@@ -208,7 +227,7 @@
     "body": [
       "String(${0:value})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "trim": {
     "description": "trim for clear space for start and end \n trimStart only left \n trimEnd only right",
@@ -216,7 +235,7 @@
     "body": [
       "${1:string}.trim${1:Start/End}()"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   /** 
   * * JavaScript Array Snippet (jssnippet)
@@ -227,15 +246,7 @@
     "body": [
       "${1:array}.at(${0:index})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
-  },
-  "concat": {
-    "description": "join array with 1 or more any type value to new element \n return array",
-    "prefix": "arr_concat",
-    "body": [
-      "${1:array}.concat(${0:...valueN})"
-    ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "copy_within": {
     "description": "copy from start copy index and only replace from target \n @thirdParam exclusive end copy index \n return  array",
@@ -243,7 +254,7 @@
     "body": [
       "${1:array}.copyWithin(${1:target}, ${2:startCopyIndex})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "entries": {
     "description": "replace every element to object iterator [A] => [indexA,ValueA] \n return array",
@@ -251,7 +262,7 @@
     "body": [
       "${0:array}.entries()"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "every": {
     "description": "if every element passed test function return true else false",
@@ -259,7 +270,7 @@
     "body": [
       "${1:array}.every((element${2:, index}) => ${0})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "fill": {
     "description": "replace element from start index to end exclusiveIndex \n no return new array \n @secondParam startIndex | number \n @thirdParam exclusiveEndIndex | number",
@@ -267,7 +278,7 @@
     "body": [
       "${1:array}.fill(${1:value})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "filter": {
     "description": "return new array with element passed test function",
@@ -275,7 +286,7 @@
     "body": [
       "${1:array}.filter((element${2:, index}) => ${0})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "find": {
     "description": "@secondCallbackParams index|number \n @thirdCallbackParams array \n return first element as need in callback",
@@ -283,7 +294,7 @@
     "body": [
       "${1:array}.find((element) => ${0})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "find_last": {
     "description": "@secondCallbackParams index|number \n @thirdCallbackParams array \n return last element as need in callback",
@@ -291,7 +302,7 @@
     "body": [
       "${1:array}.findLast((element) => ${0})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "find_index": {
     "description": "@secondCallbackParams index|number \n @thirdCallbackParams array \n return first element index as need in callback",
@@ -299,7 +310,7 @@
     "body": [
       "${1:array}.findIndex((element) => ${0})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "find_last_index": {
     "description": "@secondCallbackParams index|number \n @thirdCallbackParams array \n return last element index as need in callback",
@@ -307,7 +318,7 @@
     "body": [
       "${1:array}.findLastIndex((element) => ${0})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "flat": {
     "description": "join sub array / collapse nested array according with depth | number \n @useParam Infinity if depth not sure / dynamic \n return new array",
@@ -315,7 +326,7 @@
     "body": [
       "${1:array}.flat(${0:depth})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "flat_map": {
     "description": "make nested first and collapse sub array \n return new array",
@@ -323,7 +334,7 @@
     "body": [
       "${1:array}.flatMap(element => [${0}])"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "for_each": {
     "description": "running specific function for each element",
@@ -331,7 +342,7 @@
     "body": [
       "${1:array}.forEach((element${2:, index}) => ${0})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "from": {
     "description": "@firstParam arrayLike|string|{length : count} to initialArray \n @secondParam mapCallback \n create and return new array",
@@ -339,7 +350,7 @@
     "body": [
       "Array.from(${1:arrayLike|string|{length : count}}, (element${2:, index}) => ${0})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "join": {
     "description": "join each element to string with separator \n join() === join(\",\") \n @useParam \"\" to get 1 string without any separator ",
@@ -347,7 +358,7 @@
     "body": [
       "${1:array}.join(\"${0:separator}\")"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "keys": {
     "description": "return new array with index as elements",
@@ -355,7 +366,7 @@
     "body": [
       "[...${1:array}.keys()]"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "map": {
     "description": "running function to each element and create array with that elements",
@@ -363,7 +374,7 @@
     "body": [
       "${1}.map((element${2:, index}) => ${0})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "pop": {
     "description": "delete and return last element (mutator function)",
@@ -371,7 +382,7 @@
     "body": [
       "${0}.pop()"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "push": {
     "description": "add element to last index and return current array length | number (mutator function)",
@@ -379,7 +390,7 @@
     "body": [
       "${1}.push(${0:element})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "reduce": {
     "description": "calculate all element value \n @thirdCallbackParams index|number \n @fourthCallbackParams array \n return total calculate | number",
@@ -387,7 +398,7 @@
     "body": [
       "${1}.reduce((accumulator, currentValue) => ${0:calculate logic},${2:initialAccumulator|number})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "reduceRight": {
     "description": "calculate all element value start from right | last element \n @thirdCallbackParams index|number \n @fourthCallbackParams array \n return total calculate | number",
@@ -395,7 +406,7 @@
     "body": [
       "${1}.reduce((accumulator, currentValue) => ${0:calculate logic},${2:initialAccumulator|number})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "reverse": {
     "description": "reverse array order \n return reversed array (mutator function)",
@@ -403,7 +414,7 @@
     "body": [
       "${0}.reverse()"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "shift": {
     "description": "delete and return first element (mutator function)",
@@ -411,7 +422,7 @@
     "body": [
       "${0}.shift()"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "some": {
     "description": "if some element passed test function return true",
@@ -419,7 +430,7 @@
     "body": [
       "${1:array}.some((element${2:, index}) => ${0})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "sort": {
     "description": "sorting element according with compare callback | locale_compare \n default/no params ascending sort \n return sorted array (mutator function)",
@@ -427,7 +438,7 @@
     "body": [
       "${1:array}.sort((a,b) => ${0:a.localeCompare(b)})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "splice": {
     "description": "delete or add element array \n return removed element (mutator function) | array \n @useParam 0 for delete count no delete action",
@@ -435,7 +446,7 @@
     "body": [
       "${1:array}.splice(${2:startAction}, ${3:deleteCount}, ${4:...addValue})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "to_reversed": {
     "description": "reverse array order \n return reversed array",
@@ -443,7 +454,7 @@
     "body": [
       "${0}.toReversed()"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "to_sorted": {
     "description": "sorting element according with compare callback | locale_compare \n default/no params ascending sort \n return sorted array",
@@ -451,7 +462,7 @@
     "body": [
       "${1:array}.toSorted((a,b) => ${0:a.localeCompare(b)})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "to_spliced": {
     "description": "delete or add element array \n return removed element | array \n @useParam 0 for delete count no delete action",
@@ -459,7 +470,7 @@
     "body": [
       "${1:array}.toSpliced(${2:startIndexAction}, ${3:deleteCount}, ${4:...addValue})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "unshift": {
     "description": "add element to first index and return current array length | number (mutator function)",
@@ -467,7 +478,7 @@
     "body": [
       "${1}.unshift(${0:element})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "with": {
     "description": "return new array with 1 new element from new element at index target",
@@ -475,19 +486,19 @@
     "body": [
       "${1}.with(${2:indexTarget}, ${0:newElement})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   /** 
   *  ! markerr
   * * JavaScript Object Snippet (jssnippet) 
   */
   "assign": {
-    "description": "(mutable function) \n return object already added source | object \n @firstParam is object target|{} new object \n @secondParams ...values",
+    "description": "(Mutable function) \n return object already added source | object \n @firstParam is object target|{} new object \n @secondParams ...values",
     "prefix": "obj_assign",
     "body": [
       "Object.assign(${1:target|{}}, ${0:source1,source2,....sourceN source is object})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "create": {
     "prefix": "obj_create",
@@ -495,7 +506,7 @@
     "body": [
       "const ${1:obj} = Object.create(${2:prototype}, ${3:? propertiObject (snippetAble)})"
     ],
-    "description": "(immutable function)\nReturns object with prototype.\n@secondParam propertiesObject defines properties on the prototype.\nSecond param example:\nproperti: {\n  get() {\n    return value; // define default value here\n  },\n  set(value) {\n    this.properti = value; // to set properti value\n  },\n  enumerable: boolean; // define if shows during iteration\n  configurable: boolean; // define if can be reconfigured or deleted\n}",
+    "description": "(Immutable function)\nReturns object with prototype.\n@secondParam propertiesObject defines properties on the prototype.\nSecond param example:\nproperti: {\n  get() {\n    return value; // define default value here\n  },\n  set(value) {\n    this.properti = value; // to set properti value\n  },\n  enumerable: boolean; // define if shows during iteration\n  configurable: boolean; // define if can be reconfigured or deleted\n}",
   },
   "properti_object": {
     "prefix": "obj_properti_object",
@@ -526,7 +537,7 @@
     "body": [
       "import ${1} from \"${0}\""
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "Import_Export": {
     "description": "Import_Export",
@@ -534,7 +545,7 @@
     "body": [
       "import {${1}} from \"${0}\""
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "Import": {
     "description": "Import",
@@ -542,7 +553,7 @@
     "body": [
       "import \"${0}\""
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   /** 
   * * JavaScript Function Snippet (jssnippet)
@@ -555,7 +566,7 @@
       "  ${0}",
       "}"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "arrow_function": {
     "description": "fn",
@@ -565,7 +576,7 @@
       "  ${0}",
       "}"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "capitalize": {
     "description": "capitalize",
@@ -575,7 +586,7 @@
       "  return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()",
       "}"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "debounce": {
     "description": "debounce function",
@@ -590,7 +601,7 @@
       "  };",
       "}"
     ],
-    "scope": "javascript,javascriptreact"
+    "scope": "javascript,javascriptreact",
   },
   "add_listener": {
     "description": "add_listener",
@@ -598,7 +609,7 @@
     "body": [
       "${1}.addEventListener(\"${2}\", ${0:handle${3}})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "remove_listener": {
     "description": "add_listener",
@@ -606,7 +617,7 @@
     "body": [
       "${1}.removeEventListener(\"${2}\", handle${3})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "for": {
     "description": "map",
@@ -616,7 +627,7 @@
       "  ${0}",
       "}",
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   /** 
   * * JavaScript Debug Snippet (jssnippet)
@@ -627,7 +638,7 @@
     "body": [
       "console.debug(typeof ${0})"
     ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
   },
   "debug_console": {
     "description": "debug_info",
@@ -635,7 +646,7 @@
     "body": [
       "console.debug(${0})"
     ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
   },
   /** 
   * * React Import Snippet (reactsnippet)
@@ -646,7 +657,7 @@
     "body": [
       "import { createContext, useContext } from \"react\";"
     ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
   },
   "Import_Context": {
     "description": "Import_React_Context",
@@ -654,7 +665,7 @@
     "body": [
       "import { ${0}Context } from \"./use${1}Context.js\";"
     ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
   },
   "Import_Hook": {
     "description": "Import_Hook",
@@ -662,7 +673,7 @@
     "body": [
       "import {${0}} from \"react\";"
     ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
   },
   /** 
   * * React Function Component Snippet (reactsnippet)
@@ -681,7 +692,7 @@
       "",
       "export default ${1}"
     ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
   },
   "Function_Component": {
     "description": "Function_Component",
@@ -697,7 +708,7 @@
       "",
       "export default ${TM_FILENAME_BASE}"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact"
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
   "Function_Provider_Component": {
     "description": "Function_Provider_Component",
@@ -713,7 +724,7 @@
       "  );",
       "}"
     ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
   },
   /** 
   * * React Use Hooks Snippet (reactsnippet)
@@ -724,7 +735,7 @@
     "body": [
       "const [${1}, set${1/(.*)/${1:/capitalize}/}] = ${0:useState}(${2})"
     ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
   },
   "Use_Memo": {
     "description": "Use_State",
@@ -734,7 +745,7 @@
       "  // TODO : define value",
       "}, [])",
     ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
   },
   "Use_Ref": {
     "description": "Use_Ref",
@@ -742,7 +753,7 @@
     "body": [
       "const ${1} = ${0:useRef}(${2})"
     ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
   },
   "Use_Effect": {
     "description": "Use_Effect",
@@ -756,7 +767,7 @@
       "  }",
       "}, [])",
     ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
   },
   "Use_Context": {
     "description": "Use_Context",
@@ -764,7 +775,7 @@
     "body": [
       "const {${1}} = ${0:use${2/(.*)/${2:/capitalize}/}Context}()"
     ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
   },
   /** 
   * * React Create Snippet (reactsnippet)
@@ -781,7 +792,7 @@
       "  </StrictMode>",
       ");",
     ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
   },
   "Create_Context": {
     "description": "Create_Context",
@@ -797,6 +808,6 @@
       "  return context;",
       "}"
     ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
   },
 }

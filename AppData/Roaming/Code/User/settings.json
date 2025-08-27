@@ -304,7 +304,61 @@
       "italic": false
     },
     {
-      "tag": "@param",
+      "tag": "@params",
+      "color": "#218bed",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "@secondParams",
+      "color": "#218bed",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "@callbackSecondParams",
+      "color": "#218bed",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "@thirdParams",
+      "color": "#218bed",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "@callbackThirdParams",
+      "color": "#218bed",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "@fourthParams",
+      "color": "#218bed",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "@callbackFourthParams",
       "color": "#218bed",
       "strikethrough": false,
       "underline": false,
