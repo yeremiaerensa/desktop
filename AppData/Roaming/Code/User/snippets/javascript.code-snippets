@@ -1,109 +1,69 @@
 {
-  /** 
-  * * JavaScript Snippet (jssnippet) 
+  /*
+  ! ------------------- AUTOCOMPLETE SECTION -------------------
   */
   "const": {
     "prefix": "const",
     "body": [
-      "const ${1:name} = ${0}"
+      "const ${1:name} ="
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "description": "(writer) \n Return: text"
+    "description": "(auto-complete) \n when text const \n\n"
   },
-  /** 
-  * * JavaScript Array | String Snippet (jssnippet) 
+  /*
+  ! ------------------- ARRAY | STRING METHOD SECTION -------------------
   */
+  "at": {
+    "prefix": "arr_or_str_at",
+    "body": [
+      "${3}${1:string}.at(${2})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "description": "(Pure Function | Immutable) \n @return element|character :any|string \n\n @firstParam index :number \n [define : search point] \n @use negative :number \n [define : start search from end/right] \n @defaultValue 0 :number \n\n",
+  },
   "concat": {
     "prefix": "arr_or_str_concat",
     "body": [
-      "${1:array|string}.concat(${0:...valueN :any|string})"
+      "${3}${1:array|string}.concat(${2:...valueN :any|string})"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact",
-    "description": "(Pure Function | Immutable) \n @return concatenated :array|string \n\n Docs : \n join 2 or more array or string and return new joined array or string",
+    "description": "(Pure Function | Immutable) \n @return concatenated :string \n @param valueN :any|string \n [define : element or string can be added] \n\n Hover Me : \n no maximum parameter \n\n",
   },
   "includes": {
     "prefix": "arr_or_str_includes",
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
     "body": [
-      "${0}${1:array|string}.includes(${2:element|substring :any|string})"
+      "${3}${1:array|string}.includes(${2:element|substring :any|string})"
     ],
-    "description": "(Pure Function | Immutable) \n @return isIncludes :boolean \n @secondParams fromIndex ?:number [define: search starting point] \n\n Docs : \n to check whether include the value",
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "description": "(Pure Function | Immutable) \n @return isIncludes :boolean \n\n @firstParam element|string :string \n [define : element for array string fo string] \n\n @secondParam index ?:number \n [define : to define start position] \n\n Hover Me : \n to check element or substring includes or not \n\n",
   },
   "index_of": {
     "prefix": "arr_or_str_index_of",
     "body": [
-      "${0}${1:array|string}.indexOf(${2:element|character :any|string})"
+      "${3}${1:array|string}.indexOf(${2:element|character :any|string})"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact",
-    "description": "(Pure Function | Immutable) \n @return index|-1 :number \n @secondParams fromIndex ?:number [define: search starting point] \n\n Docs : \n to get index from the first element or character discovered \n if not found will return -1",
+    "description": "(Pure Function | Immutable) \n @return index :number \n\n @secondParams fromIndex ?:number \n [define: search starting point] \n\n Hover Me : \n to get index from the first element or character discovered \n if not found will return -1 \n\n",
   },
   "last_index_of": {
     "prefix": "arr_or_str_last_index_of",
     "body": [
-      "${0}${1:array|string}.lastIndexOf(${2:element|character :any|string})"
+      "${3}${1:array|string}.lastIndexOf(${2:element|character :any|string})"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact",
-    "description": "(Pure Function | Immutable) \n @return index|-1 :number \n @secondParams fromIndex ?:number [define: search starting point] \n\n Docs : \n to get index from the last element or character discovered \n if not found will return -1",
+    "description": "(Pure Function | Immutable) \n @return index :number \n\n @secondParams fromIndex ?:number \n [define: search starting point] \n\n Hover Me : \n to get index from the last element or character discovered \n if not found will return -1 \n\n",
   },
   "slice": {
     "prefix": "arr_or_str_slice",
     "body": [
-      "${0}${1:array|string}.slice(${2:startIndex :number})"
+      "${3}${1:array|string}.slice(${2})"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact",
-    "description": "(Pure Function | Immutable) \n @return sliced :array|string \n @secondParams exclusiveIndex ?:number [define : end of slice]  \n @Params exclusiveIndex :number [define: deadline but not including (index - 1)]",
-  },
-  /** 
-  * * JavaScript Regex Snippet (jssnippet) 
-  */
-  "regex_pattern": {
-    "description": "flag and parameter sample \n return comment",
-    "prefix": "rgx_pattern",
-    "body": [
-      "// @param /\\d+/ (Satu atau lebih angka)",
-      "// @param /^\\d+$/ (String berisi hanya angka)",
-      "// @param /[a-z]+/ (Satu atau lebih huruf kecil)",
-      "// @param /^[A-Za-z0-9]+$/ (Huruf besar/kecil + angka)",
-      "// @param /^[A-Za-z]+$/ (String Hanya huruf besar atau kecil)",
-      "// @param /^\\d{3}-\\d{4}$/ (3angka-4angka)",
-      "// * flag g (Cari semua kecocokan, bukan cuma yang pertama)",
-      "// * flag i (Abaikan huruf besar/kecil)",
-      "// * flag \\d (Digit angka 0–9)",
-      "// * flag \\D (Bukan digit)",
-      "// * flag \\w ([a-zA-Z0-9_])",
-      "// * flag \\W (Bukan word character)",
-      "// * flag \\s (Spasi, tab (\\t), newline (\\n)",
-      "// * flag \\S (Bukan spasi)",
-      "// * flag . (Bukan word character)",
-      "// * flag + (Satu atau lebih, \\d+ cocok '123')",
-      "// * flag * (Nol atau lebih, \\d* cocok '', '1')",
-      "// * flag ? (Nol atau satu, \\d? cocok '', '1')",
-      "// * flag {n} (Tepat n kali, \\d{3} cocok '123')",
-      "// * flag {n,} (Tepat n kali , \\d{2,} cocok '123')",
-      "// * flag {n,m} (Antara n sampai m kali, \\d{2,4} cocok '12', '123')",
-      "// * flag ^ (Awal string, ^a cocok 'abc' tapi bukan 'ba')",
-      "// * flag $ (Akhir string, z$ cocok 'xyz' tapi bukan 'za')",
-      "// * flag \\b (Antara n sampai m kali, \\bis\\b cocok 'this is it')",
-      "// * flag \\B (Antara n sampai m kali, \\Bis\\B cocok 'mist' (dalam kata))",
-      "// * flag \\B (Antara n sampai m kali, \\Bis\\B cocok 'mist' (dalam kata))",
-      "// * flag \\B (Antara n sampai m kali, \\Bis\\B cocok 'mist' (dalam kata))",
-      "// * flag [^]+ (apa aja kecuali yang di dalam bracket,[^abc] 'd', '1', dsb",
-      "// * flag []+ (harus salah satu yang di dalam bracket, [abc] 'a', 'b', 'c'))",
-      "",
-    ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "description": "(Pure Function | Immutable) \n @return sliced :string \n\n @firstParam index ?:number \n [define : start slice position] \n @use negative :number \n [define : start slice from end/right] \n @defaultValue 0 :number \n\n @secondParam exclusiveIndex ?:number \n [define: end of sliced ] \n @use negative :number \n [define : start count exclusiveIndex from end/right] \n @defaultValue data.length :number \n\n Hover Me : \n exclusiveIndex its mean index - 1 \n without params it mean copy data \n able to use negative number \n\n",
   },
   /** 
   * * JavaScript String Snippet (jssnippet)
   */
-  "char_at": {
-    "prefix": "str_char_at",
-    "body": [
-      "${0}${1:string}.charAt(${2:index :number})"
-    ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
-    "description": "(Pure Function | Immutable) \n @return character :string \n\n Docs : \n get character of string from index \n if not match will return \"\" \n\n",
-  },
   "code_point_at": {
     "prefix": "str_code_point_at",
     "body": [
@@ -118,7 +78,7 @@
       "${1:string}.endsWith(\"${0:substring :string}\")"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact",
-    "description": "(Pure Function | Immutable) \n @return isEndsWith :boolean \n @secondParams exclusiveIndex ?:number [define : inspection area limits] \n @Params exclusiveIndex :number [define: deadline but not including (index - 1)] \n\n Docs : \n inspect string is end with substring or not",
+    "description": "(Pure Function | Immutable) \n @return isEndsWith :boolean \n\n @secondParams exclusiveIndex ?:number \n [define : inspection area limits] \n @Params exclusiveIndex :number \n [define: deadline but not including (index - 1)] \n\n Docs : \n inspect string is end with substring or not",
   },
   "locale_compare": {
     "prefix": "str_locale_compare",
@@ -131,7 +91,7 @@
       "})"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact",
-    "description": "(Pure Function | Immutable) \n @return -1|0|1 :number \n @value base [define : normal no base on] \n @value accent [define : base on accent (a ≠ á)] \n @value case [define : base on case (a ≠ A, but a == á)] \n @value variant [define : base on accent and case] \n @props ignorePunctuation [define : isIgnorePunctuation (false : \"a-b\" ≠ \"ab\")] \n @props numeric [define : isNumeric (true : \"10\" > \"2\")] \n @value upper [define : capital are sorted first] \n @value lower [define : lower are sorted first] \n\n Docs : \n value -1 is before position,0 is same position, 1 is after position \n sensitive default variant \n ignorePunctuation default false \n numeric default false \n caseFirst default false (locale-dependent)",
+    "description": "(Pure Function | Immutable) \n @return -1|0|1 :number \n @value base \n [define : normal no base on] \n @value accent \n [define : base on accent (a ≠ á)] \n @value case \n [define : base on case (a ≠ A, but a == á)] \n @value variant \n [define : base on accent and case] \n @props ignorePunctuation \n [define : isIgnorePunctuation (false : \"a-b\" ≠ \"ab\")] \n @props numeric \n [define : isNumeric (true : \"10\" > \"2\")] \n @value upper \n [define : capital are sorted first] \n @value lower \n [define : lower are sorted first] \n\n Docs : \n value -1 is before position,0 is same position, 1 is after position \n sensitive default variant \n ignorePunctuation default false \n numeric default false \n caseFirst default false (locale-dependent)",
   },
   "match": {
     "prefix": "str_match",
@@ -240,14 +200,6 @@
   /** 
   * * JavaScript Array Snippet (jssnippet)
   */
-  "at": {
-    "description": "return element according with index \n for last index use @param -1 etc",
-    "prefix": "arr_at",
-    "body": [
-      "${1:array}.at(${0:index})"
-    ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
-  },
   "copy_within": {
     "description": "copy from start copy index and only replace from target \n @thirdParam exclusive end copy index \n return  array",
     "prefix": "arr_copy_within",
@@ -344,14 +296,19 @@
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
-  "from": {
-    "description": "@firstParam arrayLike|string|{length : count} to initialArray \n @secondParam mapCallback \n create and return new array",
-    "prefix": "arr_from",
-    "body": [
-      "Array.from(${1:arrayLike|string|{length : count}}, (element${2:, index}) => ${0})"
-    ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
-  },
+  //   "from": {
+  //     "description": \n @firstParam arrayLike|string|{length : count
+  //     } to initialArray \n @secondParam mapCallback \n create and return new array","prefix": "arr_from","body": ["Array.from(${
+  //       1:arrayLike|string|{length : count
+  //       }
+  //     }, (element${
+  //       2: , index
+  //     }) => ${
+  //       0
+  //     })"
+  //   ],
+  //   "scope": "typescript, typescriptreact, javascript, javascriptreact",
+  // },
   "join": {
     "description": "join each element to string with separator \n join() === join(\",\") \n @useParam \"\" to get 1 string without any separator ",
     "prefix": "arr_join",
@@ -493,7 +450,7 @@
   * * JavaScript Object Snippet (jssnippet) 
   */
   "assign": {
-    "description": "(Mutable function) \n return object already added source | object \n @firstParam is object target|{} new object \n @secondParams ...values",
+    "description": "(Mutable function) \n return object already added source | object \n\n @firstParam is object target|{} new object \n\n @secondParams ...values",
     "prefix": "obj_assign",
     "body": [
       "Object.assign(${1:target|{}}, ${0:source1,source2,....sourceN source is object})"
@@ -817,5 +774,42 @@
       "}"
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
+  },
+  "regex_pattern": {
+    "description": "flag and parameter sample \n return comment",
+    "prefix": "rgx_pattern",
+    "body": [
+      "// @param /\\d+/ (Satu atau lebih angka)",
+      "// @param /^\\d+$/ (String berisi hanya angka)",
+      "// @param /[a-z]+/ (Satu atau lebih huruf kecil)",
+      "// @param /^[A-Za-z0-9]+$/ (Huruf besar/kecil + angka)",
+      "// @param /^[A-Za-z]+$/ (String Hanya huruf besar atau kecil)",
+      "// @param /^\\d{3}-\\d{4}$/ (3angka-4angka)",
+      "// * flag g (Cari semua kecocokan, bukan cuma yang pertama)",
+      "// * flag i (Abaikan huruf besar/kecil)",
+      "// * flag \\d (Digit angka 0–9)",
+      "// * flag \\D (Bukan digit)",
+      "// * flag \\w ([a-zA-Z0-9_])",
+      "// * flag \\W (Bukan word character)",
+      "// * flag \\s (Spasi, tab (\\t), newline (\\n)",
+      "// * flag \\S (Bukan spasi)",
+      "// * flag . (Bukan word character)",
+      "// * flag + (Satu atau lebih, \\d+ cocok '123')",
+      "// * flag * (Nol atau lebih, \\d* cocok '', '1')",
+      "// * flag ? (Nol atau satu, \\d? cocok '', '1')",
+      "// * flag {n} (Tepat n kali, \\d{3} cocok '123')",
+      "// * flag {n,} (Tepat n kali , \\d{2,} cocok '123')",
+      "// * flag {n,m} (Antara n sampai m kali, \\d{2,4} cocok '12', '123')",
+      "// * flag ^ (Awal string, ^a cocok 'abc' tapi bukan 'ba')",
+      "// * flag $ (Akhir string, z$ cocok 'xyz' tapi bukan 'za')",
+      "// * flag \\b (Antara n sampai m kali, \\bis\\b cocok 'this is it')",
+      "// * flag \\B (Antara n sampai m kali, \\Bis\\B cocok 'mist' (dalam kata))",
+      "// * flag \\B (Antara n sampai m kali, \\Bis\\B cocok 'mist' (dalam kata))",
+      "// * flag \\B (Antara n sampai m kali, \\Bis\\B cocok 'mist' (dalam kata))",
+      "// * flag [^]+ (apa aja kecuali yang di dalam bracket,[^abc] 'd', '1', dsb",
+      "// * flag []+ (harus salah satu yang di dalam bracket, [abc] 'a', 'b', 'c'))",
+      "",
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
 }

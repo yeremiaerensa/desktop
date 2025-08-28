@@ -1,7 +1,15 @@
 {
   /*
   ! ------------------- TEMP SECTION -------------------
+  
   */
+  "gpt": {
+    "prefix": "gpt",
+    "body": [
+      "${1:copy} parameter nya wajib semua? apakah semua parameter punya nilai default kalo ada apa nilainya ?  kalo ga wajib apa nilai default nya ? apa ini mutator function ? type data yang dikembalikan kalo berhasil apa ? apa yang di kembalikan kalo ga lolos uji fungsi"
+    ],
+    "description": "(auto-complete) :"
+  },
   /*
   ! ------------------- AUTOCOMPLETE SECTION -------------------
   */
@@ -87,7 +95,7 @@
   "exclusive_index_autocomplete": {
     "prefix": "exclusive_index",
     "body": [
-      "\\\\n @${1:param} fromIndex ${2:?}:number [define: deadline but not including (index - 1)]"
+      "\\\\n @${1:second}Param exclusiveIndex ?:number [define: ${2:}] ${3}\\\\n @defaultValue data.length :number \\n\\n"
     ],
     "description": "(auto-complete) :"
   },
@@ -112,52 +120,66 @@
     ],
     "description": "(auto-complete) :"
   },
+  "default_autocomplete": {
+    "prefix": "default",
+    "body": [
+      "\\\\n @defaultValue ${1:value} ${2:value_type}"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "negative_autocomplete": {
+    "prefix": "negative",
+    "body": [
+      "\\\\n @use negative :number \\\\n [define : start ${1} from end/right] ${2:\\n\\n}"
+    ],
+    "description": "(auto-complete) :"
+  },
   "param_autocomplete": {
     "prefix": "param",
     "body": [
-      "\\\\n @param ${1:param_name} ${2:param_type} [define : ${3}]"
+      "\\\\n\\\\n @param ${1:param_name} ${2:param_type} \\\\n [define : ${3}] ${4}\\\\n\\\\n"
     ],
     "description": "(auto-complete) :"
   },
   "callback_param_autocomplete": {
     "prefix": "callback_param",
     "body": [
-      "\\\\n @callbackParam ${1:param_name} ${2:param_type} [define : ${3}]"
+      "\\\\n\\\\n @callbackParam ${1:param_name} ${2:param_type} \\\\n [define : ${3}] ${4}\\\\n\\\\n"
     ],
     "description": "(auto-complete) :"
   },
   "first_autocomplete": {
     "prefix": "first_param",
     "body": [
-      "\\\\n @firstParam ${1:param_name} ${2:param_type} [define : ${3}]",
+      "\\\\n\\\\n @firstParam ${1:param_name} ${2:param_type} \\\\n [define : ${3}] ${4}\\\\n\\\\n",
     ],
     "description": "(auto-complete) :"
   },
   "second_param_autocomplete": {
     "prefix": "second_param",
     "body": [
-      "\\\\n @secondParam ${1:param_name} ${2:param_type} [define : ${3}]",
+      "\\\\n\\\\n @secondParam ${1:param_name} ${2:param_type} \\\\n [define : ${3}] ${4}\\\\n\\\\n",
     ],
     "description": "(auto-complete) :"
   },
   "second_callback_param_autocomplete": {
     "prefix": "second_callback_param",
     "body": [
-      "\\\\n @secondCallbackParam ${1:param_name} ${2:param_type} [define : ${3}]",
+      "\\\\n\\\\n @secondCallbackParam ${1:param_name} ${2:param_type} \\\\n [define : ${3}] ${4}\\\\n\\\\n",
     ],
     "description": "(auto-complete) :"
   },
   "third_param_autocomplete": {
     "prefix": "third_param",
     "body": [
-      "\\\\n @thirdParam ${1:param_name} ${2:param_type} [define : ${3}]",
+      "\\\\n\\\\n @thirdParam ${1:param_name} ${2:param_type} \\\\n [define : ${3}] ${4}\\\\n\\\\n",
     ],
     "description": "(auto-complete) :"
   },
   "third_callback_param_autocomplete": {
     "prefix": "third_callback_param",
     "body": [
-      "\\\\n @thirdCallbackParam ${1:param_name} ${2:param_typed [define : ${3}]",
+      "\\\\n\\\\n @thirdCallbackParam ${1:param_name} ${2:param_typed \\\\n [define : ${3}] ${4}\\\\n\\\\n",
     ],
     "description": "(auto-complete) :",
   },
@@ -165,7 +187,7 @@
     "prefix": "docs",
     "description": "(auto-complete) :",
     "body": [
-      "\\\\n\\\\n Read Me : \\\\n ${0}"
+      "\\\\n\\\\n Hover Me : \\\\n ${0}"
     ],
   },
   /*
@@ -248,6 +270,13 @@
     "prefix": "mutable_function_javascript-description",
     "body": [
       "(Mutator Function | Mutable) \\\\n @return ${1:value} ${2:type} ${3} \\\\n\\\\n"
+    ],
+    "description": "(auto-complete) :",
+  },
+  "autocomplete": {
+    "prefix": "autocomplete_javascript-description",
+    "body": [
+      "(auto-complete) \\\\n when text ${1:prefix} \\\\n\\\\n"
     ],
     "description": "(auto-complete) :",
   },
