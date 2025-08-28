@@ -675,6 +675,14 @@
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
   },
+  "Snippet_Name": {
+    "prefix": "obj_Snippet_Name",
+    "body": [
+      ""
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": ""
+  },
   /** 
   * * React Function Component Snippet (reactsnippet)
   */

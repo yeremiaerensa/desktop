@@ -2,13 +2,6 @@
   /*
   ! ------------------- TEMP SECTION -------------------
   */
-  "description_autocomplete": {
-    "prefix": "description",
-    "body": [
-      "(${2:type}) \\\\n @return ${3:info :type}",
-    ],
-    "description": "(auto-complete) :"
-  },
   /*
   ! ------------------- AUTOCOMPLETE SECTION -------------------
   */
@@ -22,7 +15,7 @@
   "end_of_line_autocomplete": {
     "prefix": "eol",
     "body": [
-      "\\\\n\\\\n"
+      "\\\\\\n\\\\\\n"
     ],
     "description": "(auto-complete) :"
   },
@@ -46,62 +39,6 @@
       "/*",
       "! ------------------- ${1/(.+)/${1:/upcase}/} SECTION -------------------",
       "*/",
-    ],
-    "description": "(auto-complete) :"
-  },
-  "any_autocomplete": {
-    "prefix": "any",
-    "body": [
-      ":any"
-    ],
-    "description": "(auto-complete) :"
-  },
-  "array_autocomplete": {
-    "prefix": "array",
-    "body": [
-      ":array"
-    ],
-    "description": "(auto-complete) :"
-  },
-  "boolean_autocomplete": {
-    "prefix": "boolean",
-    "body": [
-      ":boolean"
-    ],
-    "description": "(auto-complete) :"
-  },
-  "falsy_autocomplete": {
-    "prefix": "falsy",
-    "body": [
-      ":falsy"
-    ],
-    "description": "(auto-complete) :"
-  },
-  "string_autocomplete": {
-    "prefix": "string",
-    "body": [
-      ":string"
-    ],
-    "description": "(auto-complete) :"
-  },
-  "number_autocomplete": {
-    "prefix": "number",
-    "body": [
-      ":number"
-    ],
-    "description": "(auto-complete) :"
-  },
-  "object_autocomplete": {
-    "prefix": "object",
-    "body": [
-      ":object"
-    ],
-    "description": "(auto-complete) :"
-  },
-  "function_autocomplete": {
-    "prefix": "fn",
-    "body": [
-      ":fn"
     ],
     "description": "(auto-complete) :"
   },
@@ -196,87 +133,166 @@
     ],
     "description": "(auto-complete) :"
   },
-  "first_callback_param_autocomplete": {
-    "prefix": "first_callback_param",
-    "body": [
-      "\\\\n @firstCallbackParam ${1:param_name} ${2:param_type} [define : ${3}]",
-    ],
-    "description": "(auto-complete) :"
-  },
   "second_param_autocomplete": {
     "prefix": "second_param",
     "body": [
-      "\\\\n @secondParam ${1:param_name} ?${2:param_type} [define : ${3}]",
+      "\\\\n @secondParam ${1:param_name} ${2:param_type} [define : ${3}]",
     ],
     "description": "(auto-complete) :"
   },
-  "callbackSecondParam_autocomplete": {
-    "prefix": "callback_second_param",
+  "second_callback_param_autocomplete": {
+    "prefix": "second_callback_param",
     "body": [
-      "\\\\n @callbackSecondParam ${1:param_name} ?${2:param_type} [define : ${3}]",
+      "\\\\n @secondCallbackParam ${1:param_name} ${2:param_type} [define : ${3}]",
     ],
     "description": "(auto-complete) :"
   },
-  "thirdParam_autocomplete": {
-    "prefix": "thirdParam",
+  "third_param_autocomplete": {
+    "prefix": "third_param",
     "body": [
-      "\\\\n @thirdParam ${1:param_name} ?${2:param_type} [define : ${3}]",
+      "\\\\n @thirdParam ${1:param_name} ${2:param_type} [define : ${3}]",
     ],
     "description": "(auto-complete) :"
   },
-  "callbackThirdParam_autocomplete": {
-    "prefix": "thirdParam",
-    "description": "(auto-complete) :",
+  "third_callback_param_autocomplete": {
+    "prefix": "third_callback_param",
     "body": [
-      "\\\\n @callbackThirdParam ${1:param_name} ?${2:param_typed [define : ${3}]",
+      "\\\\n @thirdCallbackParam ${1:param_name} ${2:param_typed [define : ${3}]",
     ],
-  },
-  "pure_function_autocomplete": {
     "description": "(auto-complete) :",
-    "body": [
-      "Pure Function | Immutable"
-    ],
-  },
-  "mutator_autocomplete": {
-    "description": "(auto-complete) :",
-    "body": [
-      "Mutator Function | Mutable"
-    ],
-  },
-  "tailwind_autocomplete": {
-    "description": "(auto-complete) :",
-    "body": [
-      "define class for tailwind"
-    ],
   },
   "docs_autocomplete": {
+    "prefix": "docs",
     "description": "(auto-complete) :",
     "body": [
-      "\\\\n\\\\n Docs : \\\\n ${1} \\\\n\\\\n"
+      "\\\\n\\\\n Read Me : \\\\n ${0}"
     ],
   },
   /*
+! ------------------- DATA TYPES SECTION -------------------
+*/
+  "any_type": {
+    "prefix": "any",
+    "body": [
+      ":any"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "array_type": {
+    "prefix": "array",
+    "body": [
+      ":array"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "boolean_type": {
+    "prefix": "boolean",
+    "body": [
+      ":boolean"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "falsy_type": {
+    "prefix": "falsy",
+    "body": [
+      ":falsy"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "string_type": {
+    "prefix": "string",
+    "body": [
+      ":string"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "number_type": {
+    "prefix": "number",
+    "body": [
+      ":number"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "object_type": {
+    "prefix": "object",
+    "body": [
+      ":object"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "function_type": {
+    "prefix": "fn",
+    "body": [
+      ":fn"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "size_type": {
+    "prefix": "size",
+    "body": [
+      ":size"
+    ],
+    "description": "(auto-complete) :"
+  },
+  /*
+  ! ------------------- JAVASCRIPT DESCRIPTION TYPES SECTION -------------------
+  */
+  "immutable_function": {
+    "prefix": "immutable_function_javascript-description",
+    "body": [
+      "(Pure Function | Immutable) \\\\n @return ${1:value} ${2:type} ${3} \\\\n\\\\n"
+    ],
+    "description": "(auto-complete) :",
+  },
+  "mutable_function": {
+    "prefix": "mutable_function_javascript-description",
+    "body": [
+      "(Mutator Function | Mutable) \\\\n @return ${1:value} ${2:type} ${3} \\\\n\\\\n"
+    ],
+    "description": "(auto-complete) :",
+  },
+  /*
+  ! ------------------- CSS DESCRIPTION SECTION -------------------
+  */
+  "css_function": {
+    "prefix": "css_function_css-description",
+    "body": [
+      "(css function) \\\\n @firstParam ${1:param_name} ${2:param_type} [define : ${3}] ${0} \\\\n\\\\n"
+    ],
+    "description": "(auto-complete) :",
+  },
+  "responsive_props": {
+    "prefix": "responsive_props_css-description",
+    "body": [
+      "(responsive props) \\\\n @value ${1:value_type} ${0} \\\\n\\\\n"
+    ],
+    "description": "(auto-complete) :",
+  },
+  /*
+  ! ------------------- HTML DESCRIPTION SECTION -------------------
+  */
+  /*
   ! ------------------- SNIPPET TEMPLATES SECTION -------------------
   */
-  "js-snippet": {
-    "description": "javascript snippet",
-    "prefix": "js-snippet",
+  "javascript-snippet": {
+    "description": "javascript snippet template generator",
+    "prefix": "javascript-snippet",
     "body": [
-      "\"${1:Snippet_Name}\": {",
+      "\"${1:snippet_Name}\": {",
       "  \"prefix\": \"obj_${1}\",",
       "  \"body\": [",
-      "    \"$0\"",
+      "    \"${3}\"",
       "  ],",
       "  \"scope\": \"typescript,typescriptreact,javascript,javascriptreact\",",
-      "  \"description\": \"(${2:type}) \\\\n @return ${3:info :type} ${5}\"",
+      "  \"description\": \"${2:javascript-description}\"",
       "},"
     ]
   },
-  "text-snippet": {
-    "description": "text snippet snippet template generator",
-    "prefix": "text-snippet",
+  "autocomplete-snippet": {
+    "description": "autocomplete snippet template generator",
+    "prefix": "autocomplete-snippet",
     "body": [
-      "\"${1:Name}_autocomplete\": {",
+      "\"${1:snippet_Name}_autocomplete\": {",
       "  \"prefix\": \"${1}\",",
       "  \"body\": [",
       "    \"$2\"",
@@ -285,28 +301,32 @@
       "},"
     ]
   },
-  /*
-  ! ------------------- SCOPE SECTION -------------------
-  */
-  "Scope_JavaScript": {
-    "description": "Scope_JavaScript",
-    "prefix": "scp_javascript",
+  "css-snippet": {
+    "description": "css snippet template generator",
+    "prefix": "css-snippet",
     "body": [
-      "typescript, typescriptreact, javascript, javascriptreact"
-    ],
+      "\"${1:snippet_Name}\": {",
+      "  \"prefix\": \"${2:prefix}_${1}\",",
+      "  \"body\": [",
+      "    \"${3}\"",
+      "  ],",
+      "  \"scope\": \"css, scss, tailwindcss\",",
+      "  \"description\": \"${4:css-description}\"",
+      "},"
+    ]
   },
-  "scope_css": {
-    "description": "scope_css",
-    "prefix": "scp_css",
+  "html-snippet": {
+    "description": "html snippet template generator",
+    "prefix": "html-snippet",
     "body": [
-      "css, scss, tailwindcss"
-    ],
-  },
-  "scope_html": {
-    "description": "scope_css",
-    "prefix": "scp_html",
-    "body": [
-      "html, typescriptreact ,javascriptreact"
-    ],
+      "\"${1:snippet_Name}\": {",
+      "  \"prefix\": \"${2:prefix}_${1}\",",
+      "  \"body\": [",
+      "    \"${4}\"",
+      "  ],",
+      "  \"scope\": \"html, typescriptreact ,javascriptreact\",",
+      "  \"description\": \"${3:html-description}\"",
+      "},"
+    ]
   },
 }

@@ -1,0 +1,81 @@
+{
+  /*
+  ! ------------------- CSS FUNCTION SECTION -------------------
+  */
+  "clamp": {
+    "prefix": "fn_clamp",
+    "body": [
+      "clamp(${1:min}, ${2:prefer}, ${3:max})",
+    ],
+    "scope": "css, scss, tailwindcss, html, typescriptreact ,javascriptreact",
+    "description": "(css function) \n \n @firstParam min :size [define : set minimum size] \n @secondParam prefer :size [define : set prefer size] \n @thirdParam max :size [define : set maximum size] \n\n Read Me : \n to set min and max width with prefer value \n\n"
+  },
+  "min": {
+    "prefix": "fn_min",
+    "body": [
+      "min(${1:option1 :size}, ${2:option2 :size})"
+    ],
+    "scope": "css, scss, tailwindcss, html, typescriptreact ,javascriptreact",
+    "description": "(css function) \n @firstParam option1 :size [define : set first option] \n @secondParam option2 :size [define : set second option] \n\n Read Me : \n function will select smallest param \n able use calc() \n\n"
+  },
+  "max": {
+    "prefix": "fn_max",
+    "body": [
+      "max(${1:option1 :size}, ${2:option2 :size})"
+    ],
+    "scope": "css, scss, tailwindcss, html, typescriptreact ,javascriptreact",
+    "description": "(css function) \n @firstParam option1 :size [define : set first option] \n @secondParam option2 :size [define : set second option] \n\n Read Me : \n function will select biggest param \n able use calc() \n\n"
+  },
+  "calc": {
+    "prefix": "fn_calc",
+    "body": [
+      "calc(${1:expression})"
+    ],
+    "scope": "css, scss, tailwindcss, html, typescriptreact ,javascriptreact",
+    "description": "(css function) \n @firstParam expression :math [define : use math operation] \n\n Read Me : \n operator *|/ only can be used with unit and digit \n @example calc(1rem * 1.5) ❌ \n @example  calc(10 / 2px) ❌ \n @example  calc(10 - 2px) ❌\n can use min|max :fn \n\n"
+  },
+  /*
+  ! ------------------- RESPONSIVE PROPS SECTION -------------------
+  */
+  "font-size": {
+    "prefix": "res_font_size",
+    "body": [
+      "font-size : clamp(${1:1}rem, calc(1rem ${2:- 10}), ${3:5vw});",
+    ],
+    "scope": "css, scss, tailwindcss",
+    "description": "(responsive props) \n @value :fn \n @firstParam min :size [define : set minimum size] \n @secondParam calc :fn [define : using calc function to define prefer  value] \n @thirdParam max :size [define : set maximum size] \n\n Read Me : \n using clamp function with calc function for second param \n\n"
+  },
+  "padding": {
+    "prefix": "res_padding",
+    "body": [
+      "padding : min(${1:0.5}em, ${2:8}%);",
+    ],
+    "scope": "css, scss, tailwindcss",
+    "description": "(responsive props) \n @value :fn \n @firstParam option1 :size [define : use em for relative to this] \n @secondParam option2 :size [define : use percent for relative with this parent width size] \n\n Read Me : \n use min function for responsive \n able to use calc function \n\n"
+  },
+  "img": {
+    "prefix": "res_img",
+    "body": [
+      "img {",
+      "  max-width: 100%;",
+      "  height: auto;",
+      "  aspect-ratio : 1/1;",
+      "  object-fit: cover;",
+      "}"
+    ],
+    "scope": "css, scss, tailwindcss",
+    "description": "(responsive props) \n @props width :size [define : write in html for SEO] \n @props aspect-ratio [define : to set wrapper size] \n @props object-fit [define : to fit with wrapper from ration] \n\n"
+  },
+  "res_height": {
+    "prefix": "res_height",
+    "body": [
+      "@support (height: 100dvh) {",
+      "  ${1:selector} {",
+      "    height: 100dvh;",
+      "  }",
+      "}",
+    ],
+    "scope": "css, scss, tailwindcss",
+    "description": "(responsive props) \n @props width :size [define : write in html for SEO] \n @props aspect-ratio [define : to set wrapper size] \n @props object-fit [define : to fit with wrapper from ration] \n\n"
+  },
+}
