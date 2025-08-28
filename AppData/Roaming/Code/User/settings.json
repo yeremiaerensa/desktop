@@ -253,7 +253,7 @@
   },
   "tailwindCSS.experimental.configFile": "./tailwind.config.js",
   "files.associations": {
-    "*.css": "tailwindcss"
+    "*.css": "css"
   },
   "[tailwindcss]": {
     "editor.tabSize": 2, // Indent 2 spasi sesuai standar CSS/Tailwind
@@ -263,7 +263,8 @@
       "strings": true // Saran otomatis saat tulis string, misal className
     },
     "editor.wordBasedSuggestions": "off", // Matikan saran kata dari dokumen lain, biar fokus Tailwind class
-    "editor.snippetSuggestions": "bottom" // Snippet saran muncul di atas
+    "editor.snippetSuggestions": "top",
+    "editor.suggest.snippetsPreventQuickSuggestions": true // Snippet saran muncul di atas
   },
   "editor.wordWrap": "on",
   "better-comments.tags": [
@@ -378,5 +379,34 @@
   ],
   "[javascript]": {
     "editor.snippets.codeActions.enabled": true
+  },
+  "[css]": {
+    "editor.snippetSuggestions": "top",
+    "editor.suggest.snippetsPreventQuickSuggestions": true,
+    "editor.tabCompletion": "onlySnippets",
+    "editor.quickSuggestions": {
+      "comments": "false",
+      "strings": "false"
+    },
+    "editor.suggest.showSnippets": true
+  },
+  "workbench.editor.empty.hint": "hidden",
+  "[scss]": {
+    "editor.snippetSuggestions": "top"
+  },
+  "[html]": {
+    "editor.snippetSuggestions": "top",
+    "editor.tabCompletion": "on",
+    "editor.suggest.snippetsPreventQuickSuggestions": true
+  },
+  "[typescriptreact]": {
+    "editor.quickSuggestions": {
+      "strings": "on"
+    }
+  },
+  "[javascriptreact]": {
+    "editor.quickSuggestions": {
+      "strings": "on"
+    }
   }
 }

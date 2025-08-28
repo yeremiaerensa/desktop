@@ -1,7 +1,266 @@
 {
-  "Snippet_Template": {
-    "description": "Snippet template generator",
-    "prefix": "snippet",
+  /*
+  ! ------------------- TEMP SECTION -------------------
+  */
+  "description_autocomplete": {
+    "prefix": "description",
+    "body": [
+      "(${2:type}) \\\\n @return ${3:info :type}",
+    ],
+    "description": "(auto-complete) :"
+  },
+  /*
+  ! ------------------- AUTOCOMPLETE SECTION -------------------
+  */
+  "new_line_autocomplete": {
+    "prefix": "nl",
+    "body": [
+      "\\\\n "
+    ],
+    "description": "(auto-complete) :"
+  },
+  "end_of_line_autocomplete": {
+    "prefix": "eol",
+    "body": [
+      "\\\\n\\\\n"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "capitalize_autocomplete": {
+    "prefix": "capitalize",
+    "body": [
+      "\\${1/(.+)/\\${1:/capitalize}/}"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "upcase_autocomplete": {
+    "prefix": "upcase",
+    "body": [
+      "\\${1/(.+)/\\${1:/upcase}/}"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "section_autocomplete": {
+    "prefix": "section",
+    "body": [
+      "/*",
+      "! ------------------- ${1/(.+)/${1:/upcase}/} SECTION -------------------",
+      "*/",
+    ],
+    "description": "(auto-complete) :"
+  },
+  "any_autocomplete": {
+    "prefix": "any",
+    "body": [
+      ":any"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "array_autocomplete": {
+    "prefix": "array",
+    "body": [
+      ":array"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "boolean_autocomplete": {
+    "prefix": "boolean",
+    "body": [
+      ":boolean"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "falsy_autocomplete": {
+    "prefix": "falsy",
+    "body": [
+      ":falsy"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "string_autocomplete": {
+    "prefix": "string",
+    "body": [
+      ":string"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "number_autocomplete": {
+    "prefix": "number",
+    "body": [
+      ":number"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "object_autocomplete": {
+    "prefix": "object",
+    "body": [
+      ":object"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "function_autocomplete": {
+    "prefix": "fn",
+    "body": [
+      ":fn"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "first_placeholder_autocomplete": {
+    "prefix": "st_placeholder",
+    "body": [
+      "\\${1:${1}}"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "second_placeholder_autocomplete": {
+    "prefix": "nd_placeholder",
+    "body": [
+      "\\${2:${1}}"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "third_placeholder_autocomplete": {
+    "prefix": "rd_placeholder",
+    "body": [
+      "\\${3:${1}}"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "placeholder_autocomplete": {
+    "prefix": "nth_placeholder",
+    "body": [
+      "\\${${1:nth}:${2}}"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "end_placeholder_autocomplete": {
+    "prefix": "end_placeholder",
+    "body": [
+      "\\${0}"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "from_index_autocomplete": {
+    "prefix": "from_index",
+    "body": [
+      "\\\\n @${1:param} fromIndex ${2:?}:number [define: search starting point]"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "exclusive_index_autocomplete": {
+    "prefix": "exclusive_index",
+    "body": [
+      "\\\\n @${1:param} fromIndex ${2:?}:number [define: deadline but not including (index - 1)]"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "not_passed_autocomplete": {
+    "prefix": "not_passed",
+    "body": [
+      "\\\\n if not passed will return ${1:value} \\\\n\\\\n"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "props_autocomplete": {
+    "prefix": "props",
+    "body": [
+      "\\\\n @props ${1:props_name} [define : ${2}]"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "value_autocomplete": {
+    "prefix": "value",
+    "body": [
+      "\\\\n @value ${1:value_name} :${2:value_type} [define : ${3}]"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "param_autocomplete": {
+    "prefix": "param",
+    "body": [
+      "\\\\n @param ${1:param_name} ${2:param_type} [define : ${3}]"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "callback_param_autocomplete": {
+    "prefix": "callback_param",
+    "body": [
+      "\\\\n @callbackParam ${1:param_name} ${2:param_type} [define : ${3}]"
+    ],
+    "description": "(auto-complete) :"
+  },
+  "first_autocomplete": {
+    "prefix": "first_param",
+    "body": [
+      "\\\\n @firstParam ${1:param_name} ${2:param_type} [define : ${3}]",
+    ],
+    "description": "(auto-complete) :"
+  },
+  "first_callback_param_autocomplete": {
+    "prefix": "first_callback_param",
+    "body": [
+      "\\\\n @firstCallbackParam ${1:param_name} ${2:param_type} [define : ${3}]",
+    ],
+    "description": "(auto-complete) :"
+  },
+  "second_param_autocomplete": {
+    "prefix": "second_param",
+    "body": [
+      "\\\\n @secondParam ${1:param_name} ?${2:param_type} [define : ${3}]",
+    ],
+    "description": "(auto-complete) :"
+  },
+  "callbackSecondParam_autocomplete": {
+    "prefix": "callback_second_param",
+    "body": [
+      "\\\\n @callbackSecondParam ${1:param_name} ?${2:param_type} [define : ${3}]",
+    ],
+    "description": "(auto-complete) :"
+  },
+  "thirdParam_autocomplete": {
+    "prefix": "thirdParam",
+    "body": [
+      "\\\\n @thirdParam ${1:param_name} ?${2:param_type} [define : ${3}]",
+    ],
+    "description": "(auto-complete) :"
+  },
+  "callbackThirdParam_autocomplete": {
+    "prefix": "thirdParam",
+    "description": "(auto-complete) :",
+    "body": [
+      "\\\\n @callbackThirdParam ${1:param_name} ?${2:param_typed [define : ${3}]",
+    ],
+  },
+  "pure_function_autocomplete": {
+    "description": "(auto-complete) :",
+    "body": [
+      "Pure Function | Immutable"
+    ],
+  },
+  "mutator_autocomplete": {
+    "description": "(auto-complete) :",
+    "body": [
+      "Mutator Function | Mutable"
+    ],
+  },
+  "tailwind_autocomplete": {
+    "description": "(auto-complete) :",
+    "body": [
+      "define class for tailwind"
+    ],
+  },
+  "docs_autocomplete": {
+    "description": "(auto-complete) :",
+    "body": [
+      "\\\\n\\\\n Docs : \\\\n ${1} \\\\n\\\\n"
+    ],
+  },
+  /*
+  ! ------------------- SNIPPET TEMPLATES SECTION -------------------
+  */
+  "js-snippet": {
+    "description": "javascript snippet",
+    "prefix": "js-snippet",
     "body": [
       "\"${1:Snippet_Name}\": {",
       "  \"prefix\": \"obj_${1}\",",
@@ -13,6 +272,22 @@
       "},"
     ]
   },
+  "text-snippet": {
+    "description": "text snippet snippet template generator",
+    "prefix": "text-snippet",
+    "body": [
+      "\"${1:Name}_autocomplete\": {",
+      "  \"prefix\": \"${1}\",",
+      "  \"body\": [",
+      "    \"$2\"",
+      "  ],",
+      "  \"description\": \"(auto-complete) :\"",
+      "},"
+    ]
+  },
+  /*
+  ! ------------------- SCOPE SECTION -------------------
+  */
   "Scope_JavaScript": {
     "description": "Scope_JavaScript",
     "prefix": "scp_javascript",
@@ -20,179 +295,18 @@
       "typescript, typescriptreact, javascript, javascriptreact"
     ],
   },
-  "text_any": {
-    "description": "when text any",
-    "prefix": "txt_any",
+  "scope_css": {
+    "description": "scope_css",
+    "prefix": "scp_css",
     "body": [
-      ":any"
+      "css, scss, tailwindcss"
     ],
   },
-  "text_array": {
-    "description": "when text array",
-    "prefix": "txt_array",
+  "scope_html": {
+    "description": "scope_css",
+    "prefix": "scp_html",
     "body": [
-      ":array"
-    ],
-  },
-  "text_boolean": {
-    "description": "when text boolean",
-    "prefix": "txt_boolean",
-    "body": [
-      ":boolean"
-    ],
-  },
-  "text_enter": {
-    "description": "when text enter",
-    "prefix": "txt_enter",
-    "body": [
-      "\\\\n "
-    ],
-  },
-  "text_eol": {
-    "description": "when text enter",
-    "prefix": "txt_eol",
-    "body": [
-      "\\\\n\\\\n"
-    ],
-  },
-  "text_end": {
-    "description": "when text enter",
-    "prefix": "txt_end",
-    "body": [
-      "\\${0}"
-    ],
-  },
-  "text_string": {
-    "description": "when text string",
-    "prefix": "txt_string",
-    "body": [
-      ":string"
-    ],
-  },
-  "text_number": {
-    "description": "when text number",
-    "prefix": "txt_number",
-    "body": [
-      ":number"
-    ],
-  },
-  "text_object": {
-    "description": "when text object",
-    "prefix": "txt_object",
-    "body": [
-      ":object"
-    ],
-  },
-  "text_function": {
-    "description": "when text fn",
-    "prefix": "txt_fn",
-    "body": [
-      ":fn"
-    ],
-  },
-  "text_description": {
-    "description": "when text description",
-    "prefix": "txt_description",
-    "body": [
-      "(${2:type}) \\\\n @return ${3:info :type} ${0}"
-    ],
-  },
-  "text_from_index": {
-    "description": "when text from index",
-    "prefix": "txt_from_index",
-    "body": [
-      "\\\\n @${1:second}Params fromIndex ?:number [define: search starting point] ${0}"
-    ],
-  },
-  "text_exclusiveIndex": {
-    "description": "when text exclusiveIndex",
-    "prefix": "txt_exclusiveIndex",
-    "body": [
-      "\\\\n @Params exclusiveIndex :number [define: deadline but not including (index - 1)] ${0}"
-    ],
-  },
-  "text_not_match": {
-    "description": "when text -1",
-    "prefix": "txt_not",
-    "body": [
-      "\\\\n if not match will return ${0} \\\\n\\\\n"
-    ],
-  },
-  "text_params": {
-    "description": "when text params",
-    "prefix": "txt_params",
-    "body": [
-      "\\\\n @params ${1:param_name} ${2:param_type} [define : ${3}] ${0}"
-    ],
-  },
-  "text_props": {
-    "description": "when text params",
-    "prefix": "txt_props",
-    "body": [
-      "\\\\n @props ${1:props_name} [define : ${3}] ${0}"
-    ],
-  },
-  "text_value": {
-    "description": "when text params",
-    "prefix": "txt_value",
-    "body": [
-      "\\\\n @value ${1:props_name} [define : ${3}] ${0}"
-    ],
-  },
-  "text_callbackParams": {
-    "description": "when text callbackParams",
-    "prefix": "txt_callbackParams",
-    "body": [
-      "\\\\n @callbackParams ${1:param_name} ${2:param_type} [define : ${3}] ${0}"
-    ],
-  },
-  "text_secondParams": {
-    "description": "when text secondParams",
-    "prefix": "txt_secondParams",
-    "body": [
-      "\\\\n @secondParams ${1:param_name} ?${2:param_type} [define : ${3}] ${0}"
-    ],
-  },
-  "text_callbackSecondParams": {
-    "description": "when text callbackSecondParams",
-    "prefix": "txt_callbackSecondParams",
-    "body": [
-      "\\\\n @callbackSecondParams ${1:param_name} ?${2:param_type} [define : ${3}] ${0}"
-    ],
-  },
-  "text_thirdParams": {
-    "description": "when text thirdParams",
-    "prefix": "txt_thirdParams",
-    "body": [
-      "\\\\n @thirdParams ${1:param_name} ?${2:param_typed [define : ${3}] ${0}"
-    ],
-  },
-  "text_callbackThirdParams": {
-    "description": "when text callbackThirdParams",
-    "prefix": "txt_callbackThirdParams",
-    "body": [
-      "\\\\n @callbackThirdParams ${1:param_name} ?${2:param_typed [define : ${3}] ${0}"
-    ],
-  },
-  "text_pure_function": {
-    "description": "when text const",
-    "prefix": "txt_pure_function",
-    "body": [
-      "Pure Function | Immutable"
-    ],
-  },
-  "text_mutator": {
-    "description": "when text const",
-    "prefix": "txt_mutator",
-    "body": [
-      "Mutator Function | Mutable"
-    ],
-  },
-  "text_docs": {
-    "description": "when text docs",
-    "prefix": "txt_docs",
-    "body": [
-      "\\\\n\\\\n Docs : \\\\n ${0}"
+      "html, typescriptreact ,javascriptreact"
     ],
   },
 }
