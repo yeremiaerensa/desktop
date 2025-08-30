@@ -13,6 +13,13 @@
   /*
   ! ------------------- AUTOCOMPLETE SECTION -------------------
   */
+  "prefix_autocomplete": {
+    "prefix": "prefix",
+    "body": [
+      "${1:name} = ${2:means} \\\\n"
+    ],
+    "description": "(auto-complete) :"
+  },
   "new_line_autocomplete": {
     "prefix": "nl",
     "body": [
@@ -137,49 +144,49 @@
   "param_autocomplete": {
     "prefix": "param",
     "body": [
-      "\\\\n\\\\n @param ${1:param_name} ${2:param_type} \\\\n [define : ${3}] ${4}\\\\n\\\\n"
+      "\\\\n\\\\n @param ${1:param_name} ${2:param_type} \\\\n [define : ${3}]"
     ],
     "description": "(auto-complete) :"
   },
   "callback_param_autocomplete": {
     "prefix": "callback_param",
     "body": [
-      "\\\\n\\\\n @callbackParam ${1:param_name} ${2:param_type} \\\\n [define : ${3}] ${4}\\\\n\\\\n"
+      "\\\\n\\\\n @callbackParam ${1:param_name} ${2:param_type} \\\\n [define : ${3}]"
     ],
     "description": "(auto-complete) :"
   },
   "first_autocomplete": {
     "prefix": "first_param",
     "body": [
-      "\\\\n\\\\n @firstParam ${1:param_name} ${2:param_type} \\\\n [define : ${3}] ${4}\\\\n\\\\n",
+      "\\\\n\\\\n @firstParam ${1:param_name} ${2:param_type} \\\\n [define : ${3}]",
     ],
     "description": "(auto-complete) :"
   },
   "second_param_autocomplete": {
     "prefix": "second_param",
     "body": [
-      "\\\\n\\\\n @secondParam ${1:param_name} ${2:param_type} \\\\n [define : ${3}] ${4}\\\\n\\\\n",
+      "\\\\n\\\\n @secondParam ${1:param_name} ${2:param_type} \\\\n [define : ${3}]",
     ],
     "description": "(auto-complete) :"
   },
   "second_callback_param_autocomplete": {
     "prefix": "second_callback_param",
     "body": [
-      "\\\\n\\\\n @secondCallbackParam ${1:param_name} ${2:param_type} \\\\n [define : ${3}] ${4}\\\\n\\\\n",
+      "\\\\n\\\\n @secondCallbackParam ${1:param_name} ${2:param_type} \\\\n [define : ${3}]",
     ],
     "description": "(auto-complete) :"
   },
   "third_param_autocomplete": {
     "prefix": "third_param",
     "body": [
-      "\\\\n\\\\n @thirdParam ${1:param_name} ${2:param_type} \\\\n [define : ${3}] ${4}\\\\n\\\\n",
+      "\\\\n\\\\n @thirdParam ${1:param_name} ${2:param_type} \\\\n [define : ${3}]",
     ],
     "description": "(auto-complete) :"
   },
   "third_callback_param_autocomplete": {
     "prefix": "third_callback_param",
     "body": [
-      "\\\\n\\\\n @thirdCallbackParam ${1:param_name} ${2:param_typed \\\\n [define : ${3}] ${4}\\\\n\\\\n",
+      "\\\\n\\\\n @thirdCallbackParam ${1:param_name} ${2:param_typed \\\\n [define : ${3}]",
     ],
     "description": "(auto-complete) :",
   },
@@ -187,7 +194,7 @@
     "prefix": "docs",
     "description": "(auto-complete) :",
     "body": [
-      "\\\\n\\\\n Hover Me : \\\\n ${0}"
+      "\\\\n\\\\n Hover Me : \\\\n ${0} \\\\n\\\\n"
     ],
   },
   /*
@@ -262,14 +269,35 @@
   "immutable_function": {
     "prefix": "immutable_function_javascript-description",
     "body": [
-      "(Pure Function | Immutable) \\\\n @return ${1:value} ${2:type} ${3} \\\\n\\\\n"
+      "(Pure Function | Immutable) \\\\n @return ${1:value} ${2:type} ${3}"
     ],
     "description": "(auto-complete) :",
   },
   "mutable_function": {
     "prefix": "mutable_function_javascript-description",
     "body": [
-      "(Mutator Function | Mutable) \\\\n @return ${1:value} ${2:type} ${3} \\\\n\\\\n"
+      "(Mutator Function | Mutable) \\\\n @return ${1:value} ${2:type} ${3}"
+    ],
+    "description": "(auto-complete) :",
+  },
+  "react_hook": {
+    "prefix": "react_hook_javascript-description",
+    "body": [
+      "(react use hook)"
+    ],
+    "description": "(auto-complete) :",
+  },
+  "react_function_component": {
+    "prefix": "react_function_component_javascript-description",
+    "body": [
+      "(react function component)"
+    ],
+    "description": "(auto-complete) :",
+  },
+  "react_create": {
+    "prefix": "react_create_javascript-description",
+    "body": [
+      "(react create function)"
     ],
     "description": "(auto-complete) :",
   },
@@ -308,12 +336,12 @@
     "prefix": "javascript-snippet",
     "body": [
       "\"${1:snippet_Name}\": {",
-      "  \"prefix\": \"obj_${1}\",",
+      "  \"prefix\": \"${2:prefix}_${1}\",",
       "  \"body\": [",
-      "    \"${3}\"",
+      "    \"${4}\"",
       "  ],",
       "  \"scope\": \"typescript,typescriptreact,javascript,javascriptreact\",",
-      "  \"description\": \"${2:javascript-description}\"",
+      "  \"description\": \"${3:javascript-description}\"",
       "},"
     ]
   },

@@ -1,4 +1,12 @@
 {
+  "help": {
+    "prefix": "help_prefix",
+    "body": [
+      ""
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "(hover me) : \n\n dbg = debug \n arr = array method \n str = string method \n obj = object method \n fn = custom function \n imp = import auto-complete \n\n rim = react import \n rc = react create method \n ruh = react use hook \n rfc = react function component \n\n"
+  },
   /*
   ! ------------------- AUTOCOMPLETE SECTION -------------------
   */
@@ -61,8 +69,8 @@
     "scope": "typescript, typescriptreact, javascript, javascriptreact",
     "description": "(Pure Function | Immutable) \n @return sliced :string \n\n @firstParam index ?:number \n [define : start slice position] \n @use negative :number \n [define : start slice from end/right] \n @defaultValue 0 :number \n\n @secondParam exclusiveIndex ?:number \n [define: end of sliced ] \n @use negative :number \n [define : start count exclusiveIndex from end/right] \n @defaultValue data.length :number \n\n Hover Me : \n exclusiveIndex its mean index - 1 \n without params it mean copy data \n able to use negative number \n\n",
   },
-  /** 
-  * * JavaScript String Snippet (jssnippet)
+  /*
+  ! ------------------- STRING METHOD SECTION -------------------
   */
   "code_point_at": {
     "prefix": "str_code_point_at",
@@ -197,9 +205,9 @@
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
-  /** 
-  * * JavaScript Array Snippet (jssnippet)
-  */
+  /*
+! ------------------- ARRAY METHOD SECTION -------------------
+*/
   "copy_within": {
     "description": "copy from start copy index and only replace from target \n @thirdParam exclusive end copy index \n return  array",
     "prefix": "arr_copy_within",
@@ -296,19 +304,14 @@
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
-  //   "from": {
-  //     "description": \n @firstParam arrayLike|string|{length : count
-  //     } to initialArray \n @secondParam mapCallback \n create and return new array","prefix": "arr_from","body": ["Array.from(${
-  //       1:arrayLike|string|{length : count
-  //       }
-  //     }, (element${
-  //       2: , index
-  //     }) => ${
-  //       0
-  //     })"
-  //   ],
-  //   "scope": "typescript, typescriptreact, javascript, javascriptreact",
-  // },
+  "array_from": {
+    "prefix": "arr_from",
+    "body": [
+      "Array.from({length : ${1::number}}, ${2:mapFunction :fn})"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "(Pure Function | Immutable) \n @return newArray :array \n\n @firstParam length|arrayLike :object|string \n [define : length for custom,array like for transform to array] \n\n @secondParam mapFunction :fn \n [define : map function to custom element] \n\n Hover Me : \n to @ex length = {length : 100} \n @ex arrayLike = \"array\" \n map function has 2 params, element and index \n\n"
+  },
   "join": {
     "description": "join each element to string with separator \n join() === join(\",\") \n @useParam \"\" to get 1 string without any separator ",
     "prefix": "arr_join",
@@ -445,10 +448,9 @@
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
-  /** 
-  *  ! markerr
-  * * JavaScript Object Snippet (jssnippet) 
-  */
+  /*
+! ------------------- OBJECT METHOD SECTION -------------------
+*/
   "assign": {
     "description": "(Mutable function) \n return object already added source | object \n\n @firstParam is object target|{} new object \n\n @secondParams ...values",
     "prefix": "obj_assign",
@@ -484,10 +486,9 @@
     ],
     "description": "(@secondParam for function Object.create)",
   },
-  /** 
-  *  
-  * * JavaScript Import Snippet (jssnippet) 
-  */
+  /*
+! ------------------- IMPORT AUTOCOMPLETE SECTION -------------------
+*/
   "Import_Default": {
     "description": "Import_Default",
     "prefix": "imp_default",
@@ -512,9 +513,9 @@
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
-  /** 
-  * * JavaScript Function Snippet (jssnippet)
-  */
+  /*
+! ------------------- CUSTOM FUNCTION SECTION -------------------
+*/
   "function": {
     "description": "fn",
     "prefix": "fn",
@@ -527,10 +528,10 @@
   },
   "arrow_function": {
     "description": "fn",
-    "prefix": "fn",
+    "prefix": "fn_arrow",
     "body": [
-      "const ${1} = (${2}) => {",
-      "  ${0}",
+      "(${1}) => {",
+      "  ${2}",
       "}"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact",
@@ -586,8 +587,8 @@
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
-  /** 
-  * * JavaScript Debug Snippet (jssnippet)
+  /*
+  ! ------------------- DEBUG SECTION -------------------
   */
   "debug_typeof": {
     "description": "debug_typeof",
@@ -605,8 +606,8 @@
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
   },
-  /** 
-  * * React Import Snippet (reactsnippet)
+  /*
+  ! ------------------- REACT IMPORT SECTION -------------------
   */
   "Import_Create_Context": {
     "description": "Import_Create_Context",
@@ -640,113 +641,108 @@
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "description": ""
   },
-  /** 
-  * * React Function Component Snippet (reactsnippet)
-  */
-  "Function_Index_Component": {
-    "description": "Function_Index_Component",
+  /*
+! ------------------- REACT FUNCTION COMPONENT SECTION -------------------
+*/
+  "function_index_component": {
     "prefix": "rfc_index",
     "body": [
       "const ${1} = () => {",
       "  return (",
-      "    <${0}>",
-      "    ${TM_FILENAME_BASE}",
-      "    </${0}>",
+      "    <${2}>",
+      "    ${TM_FILENAME_BASE} ${1}",
+      "    </${2}>",
       "  )",
       "}",
       "",
       "export default ${1}"
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "(react function component) to create index component skeleton",
   },
-  "Function_Component": {
-    "description": "Function_Component",
+  "function_component": {
     "prefix": "rfc",
     "body": [
       "const ${TM_FILENAME_BASE} = () => {",
       "  return (",
-      "    <${0}>",
+      "    <${1}>",
       "    ${TM_FILENAME_BASE}",
-      "    </${0}>",
+      "    </${1}>",
       "  )",
       "}",
       "",
       "export default ${TM_FILENAME_BASE}"
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "description": "(react function component) \n\n Hover Me : \n to create component function \n\n",
   },
-  "Function_Provider_Component": {
-    "description": "Function_Provider_Component",
+  "function_provider_fragment": {
     "prefix": "rfc_provider",
     "body": [
-      "export default function ${1}Provider({ children }) {",
-      "  ",
-      "  const providerValue = undefined; // TODO: defined value",
-      "  return (",
-      "    <${1}Context.Provider value={providerValue}>",
-      "      {children}",
-      "    </${1}Context${0}.Provider>",
-      "  );",
-      "}"
+      "<${2:${1}Context}.Provider value={// TODO: defined value}>${0}</${1}Context.Provider>",
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "(react function component) \n\n Hover Me : \n to create provider \n\n",
   },
-  /** 
-  * * React Use Hooks Snippet (reactsnippet)
-  */
-  "Use_State": {
-    "description": "Use_State",
+  /*
+! ------------------- REACT USE HOOK SECTION -------------------
+*/
+  "use_state": {
     "prefix": "ruh_use_state",
     "body": [
-      "const [${1}, set${1/(.*)/${1:/capitalize}/}] = ${0:useState}(${2})"
+      "const [${1}, set${1/(.*)/${1:/capitalize}/}] = ${3:useState}(${2:initial value :any})"
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "(react use hook) \n\n Hover Me : \n to declare trigger value and handler trigger to set trigger value \n if trigger value update by handler \n component will re-render with new value from handler \n\n",
   },
-  "Use_Memo": {
-    "description": "Use_State",
-    "prefix": "ruh_use_state",
+  "use_memo": {
+    "prefix": "ruh_use_memo",
     "body": [
-      "${0:useMemo}(() => {",
-      "  // TODO : define value",
-      "}, [])",
+      "${3:useMemo}(${1:callback :fn}, [${2:dependenciesElement :any}])"
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "(react use hook) \n\n @firstParam callback :fn \n [define : value to be cached] \n\n @secondParam dependenciesElement :any \n [define : trigger value] \n\n Hover Me : \n callback return value that want to be cached, value type :any \n if trigger value get updated, callback will running again to get new value \n if dependencies = [] , value only define once when first render \n\n use for : \n cached value array|object \n declare complex function that return a value \n\n",
   },
-  "Use_Ref": {
-    "description": "Use_Ref",
+  "use_ref": {
     "prefix": "ruh_use_ref",
     "body": [
-      "const ${1} = ${0:useRef}(${2})"
+      "const ${1:name}Ref = ${2:useRef}(null);"
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "(react use hook) \n Hover Me : \n to access DOM \n to store value that don't need to affect rendering \n @ex store interval id \n\n ",
   },
-  "Use_Effect": {
-    "description": "Use_Effect",
+  "use_effect": {
     "prefix": "ruh_use_effect",
     "body": [
-      "${0:useEffect}(() => {",
-      "  // TODO: define logic",
+      "${4:useEffect}(() => {",
+      "  ${1:sideEffect}",
       "",
-      "  return () => {",
-      "    // ? need cleaner",
-      "  }",
-      "}, [])",
+      "  return () => {${2:cleanup}} ",
+      "}, [${3:dependencies :any}])",
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "(react use hook) \n\n @firstParam sideEffectCallback :any \n [define : declare function that run side effect] \n\n @secondCallbackParam dependencies :array \n [define : trigger value to run use effect] \n\n @return cleanerCallback :fn [define: function will clean value] \n\n Hover Me : \n run side effect after first rendering \n if dependencies update useEffect will call again \n if no have trigger value, use effect will call once \n cleaner callback useful keep safe memory usage \n\n must be clean \n eventListener  => removeEventListener \n setInterval => clearInterval(id) \n setTimeout => clearTimeout(id) \n fetch API => new AbortController() use method signal() and abort() \n websocket/subscription => new WebSocket('ws://example.com/socket') use method close() \n state => isMounted :flag \n\n",
   },
-  "Use_Context": {
-    "description": "Use_Context",
+  "use_context": {
     "prefix": "ruh_use_context",
     "body": [
-      "const {${1}} = ${0:use${2/(.*)/${2:/capitalize}/}Context}()"
+      "const {${1}} = ${3:use${2/(.*)/${2:/capitalize}/}Context}()"
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "(react use hook custom) \n\n Hover Me : \n get value form provider with use context hook \n  @use for avoid props drilling \n @use for sharing value between components (global state) \n\n",
   },
-  /** 
-  * * React Create Snippet (reactsnippet)
-  */
-  "Create_Root": {
-    "description": "Create_Root",
+  "use_callback": {
+    "prefix": "ruh_use_callback",
+    "body": [
+      "${3:useCallback}(${1:callback :fn}, [${2:dependenciesElement :any}])"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "(react use hook) \n\n @firstParam callback :fn \n [define : function want to be use] \n\n @secondParam dependencies :array \n [define : trigger value] \n\n Hover Me : \n prevent function re-creation \n  to memoized or cache function \n if dependencies get updated then function will re-create \n if no have dependencies or [], function only made once \n\n"
+  },
+  /*
+ ! ------------------- REACT CREATE SECTION -------------------
+ */
+  "create_root": {
     "prefix": "rc_root",
     "body": [
       "import { StrictMode } from \"react\";",
@@ -754,13 +750,14 @@
       "",
       "createRoot(document.getElementById(\"root\")).render(",
       "  <StrictMode>",
+      "  <${1:App}/>",
       "  </StrictMode>",
       ");",
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "(react create function) \n\n Hover Me : \n to define app root \n\n",
   },
   "Create_Context": {
-    "description": "Create_Context",
     "prefix": "rc_context",
     "body": [
       "export const ${1}Context = createContext(null);",
@@ -774,7 +771,11 @@
       "}"
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "(react create function) \n\n Hover Me : \n to create new context and useContextHooks with custom hooks \n\n"
   },
+  /*
+  ! ------------------- HELPER SECTION -------------------
+  */
   "regex_pattern": {
     "description": "flag and parameter sample \n return comment",
     "prefix": "rgx_pattern",
