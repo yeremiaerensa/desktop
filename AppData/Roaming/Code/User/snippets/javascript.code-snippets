@@ -647,15 +647,15 @@
   "function_index_component": {
     "prefix": "rfc_index",
     "body": [
-      "const ${1} = () => {",
+      "const ${1/(.*)/${1:/capitalize}/} = () => {",
       "  return (",
       "    <${2}>",
-      "    ${TM_FILENAME_BASE} ${1}",
+      "    ${1/(.*)/${1:/capitalize}/}",
       "    </${2}>",
       "  )",
       "}",
       "",
-      "export default ${1}"
+      "export default ${1/(.*)/${1:/capitalize}/}"
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "description": "(react function component) to create index component skeleton",
@@ -679,7 +679,7 @@
   "function_provider_fragment": {
     "prefix": "rfc_provider",
     "body": [
-      "<${2:${1}Context}.Provider value={// TODO: defined value}>${0}</${1}Context.Provider>",
+      "<${1}.Provider value={}>${0}</${1}.Provider>",
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "description": "(react function component) \n\n Hover Me : \n to create provider \n\n",
@@ -726,7 +726,7 @@
   "use_context": {
     "prefix": "ruh_use_context",
     "body": [
-      "const {${1}} = ${3:use${2/(.*)/${2:/capitalize}/}Context}()"
+      "const ${1} = ${3:use${2}Context}()"
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "description": "(react use hook custom) \n\n Hover Me : \n get value form provider with use context hook \n  @use for avoid props drilling \n @use for sharing value between components (global state) \n\n",
@@ -762,7 +762,7 @@
     "body": [
       "export const ${1}Context = createContext(null);",
       "",
-      "export function use${1}Context() {",
+      "export function use${1/(.*)/${1:/capitalize}/}Context() {",
       "  const context = useContext(${1}Context);",
       "  if (!context) {",
       "    throw new Error(\"${1}Context must be used inside provider\")",

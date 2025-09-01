@@ -253,7 +253,7 @@
   },
   "tailwindCSS.experimental.configFile": "./tailwind.config.js",
   "files.associations": {
-    "*.css": "css"
+    "*.css": "tailwindcss"
   },
   "[tailwindcss]": {
     "editor.tabSize": 2, // Indent 2 spasi sesuai standar CSS/Tailwind
