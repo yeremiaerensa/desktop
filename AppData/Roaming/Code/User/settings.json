@@ -408,5 +408,6 @@
     "editor.quickSuggestions": {
       "strings": "on"
     }
-  }
+  },
+  "explorer.confirmDelete": false
 }
