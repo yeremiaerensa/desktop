@@ -251,7 +251,7 @@
     "typescript": "typescript",
     "typescriptreact": "typescript"
   },
-  "tailwindCSS.experimental.configFile": "./tailwind.config.js",
+  "tailwindCSS.experimental.configFile": "src/index.css",
   "files.associations": {
     "*.css": "tailwindcss"
   },

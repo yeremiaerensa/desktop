@@ -546,16 +546,35 @@
     ],
     "scope": "typescript, typescriptreact, javascript, javascriptreact",
   },
-  "debounce": {
-    "description": "debounce function",
-    "prefix": "fn_debounce",
+  "throttle": {
+    "description": "throttle function",
+    "prefix": "fn_throttle",
     "body": [
-      "function debounce(fn, delay = 300) {",
-      "  let timeoutId;",
+      "function throttle(fn, delay = 1000,options = {leading: true, trailing: true}) {",
+      "  let isThrottled = false;",
+      "  let lastArgs = null",
       "",
-      "  return function (...args) {",
-      "    clearTimeout(timeoutId);",
-      "    timeoutId = setTimeout(() => fn.apply(this, args), delay);",
+      "  return function throttled(...args) {",
+      "    const {leading, trailing} = options",
+      "",
+      "    if (isThrottled && trailing) {",
+      "      lastArgs = args",
+      "    } else {",
+      "      if (leading) { fn.apply(this,args)",
+      "        lastArgs = args",
+      "      } else if (trailing) {",
+      "        lastArgs = args",
+      "      }",
+      "",
+      "      isThrottled = true",
+      "      setTimeout(()=>{",
+      "        isThrottled = false;",
+      "        if (trailing && lastArgs) {",
+      "          throttled.apply(this, lastArgs)",
+      "          lastArgs = null",
+      "         }",
+      "      },delay)",
+      "    }",
       "  };",
       "}"
     ],
@@ -757,7 +776,7 @@
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "description": "(react create function) \n\n Hover Me : \n to define app root \n\n",
   },
-  "Create_Context": {
+  "create_context": {
     "prefix": "rc_context",
     "body": [
       "export const ${1}Context = createContext(null);",
@@ -768,6 +787,18 @@
       "    throw new Error(\"${1}Context must be used inside provider\")",
       "  }",
       "  return context;",
+      "}"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "description": "(react create function) \n\n Hover Me : \n to create new context and useContextHooks with custom hooks \n\n"
+  },
+  "create_hook": {
+    "prefix": "rc_hook",
+    "body": [
+      "import {} from \"react\";",
+      "",
+      "export default function ${TM_FILENAME_BASE}() {",
+      "  ${1}",
       "}"
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
