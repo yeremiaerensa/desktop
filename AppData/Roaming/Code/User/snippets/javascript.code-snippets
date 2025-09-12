@@ -686,7 +686,7 @@
     "prefix": "test_describe",
     "body": [
       "describe(\"${1:name_test_group}\", function () {",
-      "  it(\"${2:name_case}\", function () {",
+      "  it(\"should ${2:case_result}\", function () {",
       "    expect(${3:case}).toBe(${4:case_return});",
       "  });",
       "});",
