@@ -15,7 +15,7 @@
     "body": [
       "const ${1:name} ="
     ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "scope": "javascript, javascriptreact",
     "description": "(auto-complete) \n when text const \n\n"
   },
   /*
@@ -26,7 +26,7 @@
     "body": [
       "${3}${1:string}.at(${2})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
     "description": "(Pure Function | Immutable) \n @return element|character :any|string \n\n @firstParam index :number \n [define : search point] \n @use negative :number \n [define : start search from end/right] \n @defaultValue 0 :number \n\n",
   },
   "concat": {
@@ -34,7 +34,7 @@
     "body": [
       "${3}${1:array|string}.concat(${2:...valueN :any|string})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
     "description": "(Pure Function | Immutable) \n @return concatenated :string \n @param valueN :any|string \n [define : element or string can be added] \n\n Hover Me : \n no maximum parameter \n\n",
   },
   "includes": {
@@ -42,7 +42,7 @@
     "body": [
       "${3}${1:array|string}.includes(${2:element|substring :any|string})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
     "description": "(Pure Function | Immutable) \n @return isIncludes :boolean \n\n @firstParam element|string :string \n [define : element for array string fo string] \n\n @secondParam index ?:number \n [define : to define start position] \n\n Hover Me : \n to check element or substring includes or not \n\n",
   },
   "index_of": {
@@ -50,7 +50,7 @@
     "body": [
       "${3}${1:array|string}.indexOf(${2:element|character :any|string})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
     "description": "(Pure Function | Immutable) \n @return index :number \n\n @secondParams fromIndex ?:number \n [define: search starting point] \n\n Hover Me : \n to get index from the first element or character discovered \n if not found will return -1 \n\n",
   },
   "last_index_of": {
@@ -58,7 +58,7 @@
     "body": [
       "${3}${1:array|string}.lastIndexOf(${2:element|character :any|string})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
     "description": "(Pure Function | Immutable) \n @return index :number \n\n @secondParams fromIndex ?:number \n [define: search starting point] \n\n Hover Me : \n to get index from the last element or character discovered \n if not found will return -1 \n\n",
   },
   "slice": {
@@ -66,7 +66,7 @@
     "body": [
       "${3}${1:array|string}.slice(${2})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
     "description": "(Pure Function | Immutable) \n @return sliced :string \n\n @firstParam index ?:number \n [define : start slice position] \n @use negative :number \n [define : start slice from end/right] \n @defaultValue 0 :number \n\n @secondParam exclusiveIndex ?:number \n [define: end of sliced ] \n @use negative :number \n [define : start count exclusiveIndex from end/right] \n @defaultValue data.length :number \n\n Hover Me : \n exclusiveIndex its mean index - 1 \n without params it mean copy data \n able to use negative number \n\n",
   },
   /*
@@ -77,7 +77,7 @@
     "body": [
       "${0}${1:string}.codePointAt(${2:index :number})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
     "description": "(Pure Function | Immutable) \n @return unicode :number \n\n Docs : \n get unicode from character according the index ",
   },
   "end_with": {
@@ -85,7 +85,7 @@
     "body": [
       "${1:string}.endsWith(\"${0:substring :string}\")"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
     "description": "(Pure Function | Immutable) \n @return isEndsWith :boolean \n\n @secondParams exclusiveIndex ?:number \n [define : inspection area limits] \n @Params exclusiveIndex :number \n [define: deadline but not including (index - 1)] \n\n Docs : \n inspect string is end with substring or not",
   },
   "locale_compare": {
@@ -98,7 +98,7 @@
       "  caseFirst: \"${6:upper|lower}\"",
       "})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
     "description": "(Pure Function | Immutable) \n @return -1|0|1 :number \n @value base \n [define : normal no base on] \n @value accent \n [define : base on accent (a ≠ á)] \n @value case \n [define : base on case (a ≠ A, but a == á)] \n @value variant \n [define : base on accent and case] \n @props ignorePunctuation \n [define : isIgnorePunctuation (false : \"a-b\" ≠ \"ab\")] \n @props numeric \n [define : isNumeric (true : \"10\" > \"2\")] \n @value upper \n [define : capital are sorted first] \n @value lower \n [define : lower are sorted first] \n\n Docs : \n value -1 is before position,0 is same position, 1 is after position \n sensitive default variant \n ignorePunctuation default false \n numeric default false \n caseFirst default false (locale-dependent)",
   },
   "match": {
@@ -106,7 +106,7 @@
     "body": [
       "${0}${1:string}.match(${2:rgx})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
     "description": "(Pure Function | Immutable) \n @return info :type ",
   },
   "matchAll": {
@@ -115,7 +115,7 @@
     "body": [
       "[...${1:string}.matchAll(${0:rgx})]"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "pad": {
     "description": "pad to end or start \n return new string",
@@ -123,7 +123,7 @@
     "body": [
       "${0:string}.pad${1:End/Start}(${2:length}, \"${3:padString}\")"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "repeat": {
     "description": "copy previous string as many count \n return new string ",
@@ -131,7 +131,7 @@
     "body": [
       "${0:string}.repeat(${1:count})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "replace": {
     "description": "replace target(rgx|substr), with newSubStr|function result \n fn(matchChar) => logic \n return string (new)",
@@ -139,7 +139,7 @@
     "body": [
       "${1:string}.replace(\"${2:rgx|substr}\", (matchChar) => ${0:logic})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "search": {
     "description": "return index from regexp \n return number",
@@ -147,7 +147,7 @@
     "body": [
       "${0:string}.search(/${1:rgx}/)"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "split": {
     "description": "split string to string element for array according separator \n @param limit for array length \n return new array",
@@ -155,7 +155,7 @@
     "body": [
       "${1:string}.split(${2:separator|rgx})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "starts_with": {
     "description": "check whether string start with searchString \n @SecondParam indexStart | number \n return boolean",
@@ -163,7 +163,7 @@
     "body": [
       "${1:string}.startsWith(${0:searchString})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "substring": {
     "description": "return subset | new string \n from exclusive index",
@@ -171,7 +171,7 @@
     "body": [
       "${1:string}.substring(${2:indexStart}, ${0:exclusiveIndexEnd})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "to_lower_case": {
     "description": "return lower string",
@@ -179,7 +179,7 @@
     "body": [
       "${0:string}.toLowerCase()"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "to_upper_case": {
     "description": "return upper string",
@@ -187,7 +187,7 @@
     "body": [
       "${0:string}.toUpperCase()"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "to_string": {
     "description": "convert di string",
@@ -195,7 +195,7 @@
     "body": [
       "String(${0:value})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "trim": {
     "description": "trim for clear space for start and end \n trimStart only left \n trimEnd only right",
@@ -203,7 +203,7 @@
     "body": [
       "${1:string}.trim${1:Start/End}()"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   /*
 ! ------------------- ARRAY METHOD SECTION -------------------
@@ -214,7 +214,7 @@
     "body": [
       "${1:array}.copyWithin(${1:target}, ${2:startCopyIndex})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "entries": {
     "description": "replace every element to object iterator [A] => [indexA,ValueA] \n return array",
@@ -222,7 +222,7 @@
     "body": [
       "${0:array}.entries()"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "every": {
     "description": "if every element passed test function return true else false",
@@ -230,7 +230,7 @@
     "body": [
       "${1:array}.every((element${2:, index}) => ${0})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "fill": {
     "description": "replace element from start index to end exclusiveIndex \n no return new array \n @secondParam startIndex | number \n @thirdParam exclusiveEndIndex | number",
@@ -238,7 +238,7 @@
     "body": [
       "${1:array}.fill(${1:value})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "filter": {
     "description": "return new array with element passed test function",
@@ -246,7 +246,7 @@
     "body": [
       "${1:array}.filter((element${2:, index}) => ${0})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "find": {
     "description": "@secondCallbackParams index|number \n @thirdCallbackParams array \n return first element as need in callback",
@@ -254,7 +254,7 @@
     "body": [
       "${1:array}.find((element) => ${0})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "find_last": {
     "description": "@secondCallbackParams index|number \n @thirdCallbackParams array \n return last element as need in callback",
@@ -262,7 +262,7 @@
     "body": [
       "${1:array}.findLast((element) => ${0})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "find_index": {
     "description": "@secondCallbackParams index|number \n @thirdCallbackParams array \n return first element index as need in callback",
@@ -270,7 +270,7 @@
     "body": [
       "${1:array}.findIndex((element) => ${0})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "find_last_index": {
     "description": "@secondCallbackParams index|number \n @thirdCallbackParams array \n return last element index as need in callback",
@@ -278,7 +278,7 @@
     "body": [
       "${1:array}.findLastIndex((element) => ${0})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "flat": {
     "description": "join sub array / collapse nested array according with depth | number \n @useParam Infinity if depth not sure / dynamic \n return new array",
@@ -286,7 +286,7 @@
     "body": [
       "${1:array}.flat(${0:depth})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "flat_map": {
     "description": "make nested first and collapse sub array \n return new array",
@@ -294,7 +294,7 @@
     "body": [
       "${1:array}.flatMap(element => [${0}])"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "for_each": {
     "description": "running specific function for each element",
@@ -302,7 +302,7 @@
     "body": [
       "${1:array}.forEach((element${2:, index}) => ${0})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "array_from": {
     "prefix": "arr_from",
@@ -318,7 +318,7 @@
     "body": [
       "${1:array}.join(\"${0:separator}\")"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "keys": {
     "description": "return new array with index as elements",
@@ -326,7 +326,7 @@
     "body": [
       "[...${1:array}.keys()]"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "map": {
     "description": "running function to each element and create array with that elements",
@@ -334,7 +334,7 @@
     "body": [
       "${1}.map((element${2:, index}) => ${0})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "pop": {
     "description": "delete and return last element (mutator function)",
@@ -342,7 +342,7 @@
     "body": [
       "${0}.pop()"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "push": {
     "description": "add element to last index and return current array length | number (mutator function)",
@@ -350,7 +350,7 @@
     "body": [
       "${1}.push(${0:element})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "reduce": {
     "description": "calculate all element value \n @thirdCallbackParams index|number \n @fourthCallbackParams array \n return total calculate | number",
@@ -358,7 +358,7 @@
     "body": [
       "${1}.reduce((accumulator, currentValue) => ${0:calculate logic},${2:initialAccumulator|number})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "reduceRight": {
     "description": "calculate all element value start from right | last element \n @thirdCallbackParams index|number \n @fourthCallbackParams array \n return total calculate | number",
@@ -366,7 +366,7 @@
     "body": [
       "${1}.reduce((accumulator, currentValue) => ${0:calculate logic},${2:initialAccumulator|number})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "reverse": {
     "description": "reverse array order \n return reversed array (mutator function)",
@@ -374,7 +374,7 @@
     "body": [
       "${0}.reverse()"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "shift": {
     "description": "delete and return first element (mutator function)",
@@ -382,7 +382,7 @@
     "body": [
       "${0}.shift()"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "some": {
     "description": "if some element passed test function return true",
@@ -390,7 +390,7 @@
     "body": [
       "${1:array}.some((element${2:, index}) => ${0})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "sort": {
     "description": "sorting element according with compare callback | locale_compare \n default/no params ascending sort \n return sorted array (mutator function)",
@@ -398,7 +398,7 @@
     "body": [
       "${1:array}.sort((a,b) => ${0:a.localeCompare(b)})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "splice": {
     "description": "delete or add element array \n return removed element (mutator function) | array \n @useParam 0 for delete count no delete action",
@@ -406,7 +406,7 @@
     "body": [
       "${1:array}.splice(${2:startAction}, ${3:deleteCount}, ${4:...addValue})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "to_reversed": {
     "description": "reverse array order \n return reversed array",
@@ -414,7 +414,7 @@
     "body": [
       "${0}.toReversed()"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "to_sorted": {
     "description": "sorting element according with compare callback | locale_compare \n default/no params ascending sort \n return sorted array",
@@ -422,7 +422,7 @@
     "body": [
       "${1:array}.toSorted((a,b) => ${0:a.localeCompare(b)})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "to_spliced": {
     "description": "delete or add element array \n return removed element | array \n @useParam 0 for delete count no delete action",
@@ -430,7 +430,7 @@
     "body": [
       "${1:array}.toSpliced(${2:startIndexAction}, ${3:deleteCount}, ${4:...addValue})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "unshift": {
     "description": "add element to first index and return current array length | number (mutator function)",
@@ -438,7 +438,7 @@
     "body": [
       "${1}.unshift(${0:element})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "with": {
     "description": "return new array with 1 new element from new element at index target",
@@ -446,7 +446,7 @@
     "body": [
       "${1}.with(${2:indexTarget}, ${0:newElement})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   /*
 ! ------------------- OBJECT METHOD SECTION -------------------
@@ -457,11 +457,11 @@
     "body": [
       "Object.assign(${1:target|{}}, ${0:source1,source2,....sourceN source is object})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "create": {
     "prefix": "obj_create",
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
     "body": [
       "const ${1:obj} = Object.create(${2:prototype}, ${3:? propertiObject (snippetAble)})"
     ],
@@ -469,7 +469,7 @@
   },
   "properti_object": {
     "prefix": "obj_properti_object",
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
     "body": [
       "{",
       "  ${3:propertyName}: {",
@@ -495,7 +495,7 @@
     "body": [
       "import ${1} from \"${0}\""
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "Import_Export": {
     "description": "Import_Export",
@@ -503,7 +503,7 @@
     "body": [
       "import {${1}} from \"${0}\""
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "Import": {
     "description": "Import",
@@ -511,7 +511,7 @@
     "body": [
       "import \"${0}\""
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   /*
 ! ------------------- CUSTOM FUNCTION SECTION -------------------
@@ -524,7 +524,7 @@
       "  ${0}",
       "}"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "arrow_function": {
     "description": "fn",
@@ -534,7 +534,7 @@
       "  ${2}",
       "}"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "capitalize": {
     "description": "capitalize",
@@ -544,10 +544,10 @@
       "  return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()",
       "}"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "throttle": {
-    "description": "throttle function",
+    "description": "(javascript module) \n\n @firstParam fn :fn \n [define : callback declare] \n\n @secondParam delay :number \n [define : execution delay] \n\n @thirdParam option :object \n [define : flag option] \n @props leading [define : run in the beginning (debounce)] \n @props trailing [define : run after delay]",
     "prefix": "fn_throttle",
     "body": [
       "function throttle(fn, delay = 1000,options = {leading: true, trailing: true}) {",
@@ -560,8 +560,8 @@
       "    if (isThrottled && trailing) {",
       "      lastArgs = args",
       "    } else {",
-      "      if (leading) { fn.apply(this,args)",
-      "        lastArgs = args",
+      "      if (leading) {",
+      "        fn.apply(this,args)",
       "      } else if (trailing) {",
       "        lastArgs = args",
       "      }",
@@ -578,7 +578,83 @@
       "  };",
       "}"
     ],
-    "scope": "javascript,javascriptreact",
+    "scope": "javascript",
+  },
+  "throttle_react_hook": {
+    "description": "(react hook) \n\n @firstParam fn :fn \n [define : callback declare] \n\n @secondParam delay :number \n [define : execution delay] \n\n @thirdParam option :object \n [define : flag option] \n @props leading [define : run in the beginning (debounce)] \n @props trailing [define : run after delay]",
+    "prefix": "hook_throttle",
+    "body": [
+      "import { useRef, useCallback, useEffect } from \"react\";",
+      "",
+      "export default function useThrottle(",
+      "fn,",
+      "delay = 1000,",
+      "options = { leading: true, trailing: true }",
+      ") {",
+      "  const fnRef = useRef(fn);",
+      "  const lastArgs = useRef(null);",
+      "  const timeoutRef = useRef(null);",
+      "  const isThrottled = useRef(false);",
+      "",
+      "  const { leading, trailing } = options;",
+      "",
+      "  useEffect(() => {",
+      "    fnRef.current = fn;",
+      "  }, [fn]);",
+      "",
+      "  const throttledFn = useCallback((...args) => {",
+      "    if (isThrottled.current) {",
+      "      if (trailing) lastArgs.current = args;",
+      "      return;",
+      "    }",
+      "",
+      "    if (leading) {",
+      "      fnRef.current(...args);",
+      "    } else if (trailing) {",
+      "      lastArgs.current = args;",
+      "    }",
+      "",
+      "    isThrottled.current = true;",
+      "",
+      "    timeoutRef.current = setTimeout(() => {",
+      "      isThrottled.current = false;",
+      "",
+      "      if (trailing && lastArgs.current) {",
+      "        fnRef.current(...lastArgs.current);",
+      "        lastArgs.current = null;",
+      "      }",
+      "    }, delay);",
+      "  },",
+      "  [delay, leading, trailing]",
+      "  );",
+      "",
+      "  const cancelThrottle = useCallback(() => {",
+      "    if (timeoutRef.current) {",
+      "      clearTimeout(timeoutRef.current);",
+      "      timeoutRef.current = null;",
+      "    }",
+      "    isThrottled.current = false;",
+      "    lastArgs.current = null;",
+      "  }, []);",
+      "",
+      "  const flushThrottle = useCallback(() => {",
+      "    if (timeoutRef.current) {",
+      "      clearTimeout(timeoutRef.current);",
+      "      timeoutRef.current = null;",
+      "    }",
+      "",
+      "    isThrottled.current = false;",
+      "",
+      "    if (lastArgs.current) {",
+      "      fnRef.current(...lastArgs.current);",
+      "      lastArgs.current = null;",
+      "    }",
+      "  }, []);",
+      "",
+      "  return [throttledFn, { cancelThrottle, flushThrottle }];",
+      "}",
+    ],
+    "scope": "javascript, javascriptreact",
   },
   "add_listener": {
     "description": "add_listener",
@@ -586,7 +662,7 @@
     "body": [
       "${1}.addEventListener(\"${2}\", ${0:handle${3}})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "remove_listener": {
     "description": "add_listener",
@@ -594,7 +670,7 @@
     "body": [
       "${1}.removeEventListener(\"${2}\", handle${3})"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
   "for": {
     "description": "map",
@@ -604,7 +680,29 @@
       "  ${0}",
       "}",
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
+  },
+  "describe": {
+    "prefix": "test_describe",
+    "body": [
+      "describe(\"${1:name_test_group}\", function () {",
+      "  it(\"${2:name_case}\", function () {",
+      "    expect(${3:case}).toBe(${4:case_return});",
+      "  });",
+      "});",
+    ],
+    "scope": "javascript, typescript",
+    "description": "(jest unit test)"
+  },
+  "it": {
+    "prefix": "test_it",
+    "body": [
+      "it(\"should ${1:case_result}\", function () {",
+      "  expect(${2:case}).toBe(${3:case_return});",
+      "});",
+    ],
+    "scope": "javascript, typescript",
+    "description": "(jest unit test)"
   },
   /*
   ! ------------------- DEBUG SECTION -------------------
@@ -692,7 +790,7 @@
       "",
       "export default ${TM_FILENAME_BASE}"
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
     "description": "(react function component) \n\n Hover Me : \n to create component function \n\n",
   },
   "function_provider_fragment": {
@@ -842,6 +940,6 @@
       "// * flag []+ (harus salah satu yang di dalam bracket, [abc] 'a', 'b', 'c'))",
       "",
     ],
-    "scope": "typescript, typescriptreact, javascript, javascriptreact",
+    "scope": "javascript, javascriptreact",
   },
 }

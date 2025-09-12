@@ -1,0 +1,42 @@
+{
+  "const": {
+    "prefix": "const",
+    "body": [
+      "const ${1:name}: ${2:type} = ${3:value}"
+    ],
+    "scope": "typescript,typescriptreact",
+    "description": "(auto-complete) \n\n @type: \n :string|:boolean|:number| \n\n  "
+  },
+  "const_arr": {
+    "prefix": "const_arr",
+    "body": [
+      "const ${1:name}: readonly ${2type}[] = [${3:value}, ${0}]"
+    ],
+    "scope": "typescript,typescriptreact",
+    "description": "(auto-complete) \n\n @type: \n :string|:boolean|:number \n\n  "
+  },
+  "let_arr": {
+    "prefix": "const_arr",
+    "body": [
+      "const ${1:name}: ${2type}[] = [${3:value}, ${0}]"
+    ],
+    "scope": "typescript,typescriptreact",
+    "description": "(auto-complete) \n\n @type: \n :string|:boolean|:number \n\n  "
+  },
+  "const_tuple": {
+    "prefix": "const_tuple",
+    "body": [
+      "const ${1:name}: readonly [${2:type}, ${3}] = [${4:value}, ${0}]"
+    ],
+    "scope": "typescript,typescriptreact",
+    "description": "(auto-complete) \n\n @type: \n :string|:boolean|:number|[type, type] \n\n  "
+  },
+  "let_tuple_arr": {
+    "prefix": "let_tuple_arr",
+    "body": [
+      "const ${1:name}: [{2:type}, ${3}] = [${4:value}, ${0}]"
+    ],
+    "scope": "typescript,typescriptreact",
+    "description": "(auto-complete) \n\n @type: \n :string|:boolean|:number|[type, type] \n\n  "
+  },
+}

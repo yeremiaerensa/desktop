@@ -193,6 +193,7 @@
     "session_destroy",
     "session_start",
     "signup",
+    "Solissa",
     "ssib",
     "strlen",
     "strtolower",
@@ -216,7 +217,9 @@
     "xampp",
     "Xora",
     "yeremia",
-    "yeremiaerensa"
+    "yeremiaerensa",
+    "yoay",
+    "yoman"
   ],
   "cSpell.ignoreWords": ["apiurl", "axios"],
   "cSpell.enabledFileTypes": {
@@ -409,5 +412,8 @@
       "strings": "on"
     }
   },
-  "explorer.confirmDelete": false
+  "explorer.confirmDelete": false,
+  "codeium.enableConfig": {
+    "*": false
+  }
 }
