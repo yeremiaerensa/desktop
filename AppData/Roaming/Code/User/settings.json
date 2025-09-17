@@ -206,6 +206,7 @@
     "trim",
     "ucfirst",
     "unlink",
+    "unmandatory",
     "unset",
     "unshift",
     "urlencode",

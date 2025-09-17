@@ -1,22 +1,77 @@
 {
+  /*
+  ! ------------------- AUTOCOMPLETE SECTION -------------------
+  */
   "param": {
     "prefix": "param",
     "body": [
-      "${1:name}: ${2:type}"
+      "${1:param_name}: ${2:param_type}"
     ],
     "scope": "typescript,typescriptreact",
   },
-  "const": {
-    "prefix": "const",
+  "param_constructor": {
+    "prefix": "param_constructor",
     "body": [
-      "const ${1:name}: ${2:type} = ${3:value}"
+      "${1:public} ${2:param_name}: ${3:param_type}"
     ],
     "scope": "typescript,typescriptreact",
   },
-  "let": {
-    "prefix": "let",
+  "method_class": {
+    "prefix": "method_class",
     "body": [
-      "let ${1:name}: ${2type} = ${3:value}"
+      "${1:methodName}(${2:param}): ${3:return_type} {",
+      "  ${0}",
+      "}"
+    ],
+    "scope": "typescript,typescriptreact",
+  },
+  "this_public": {
+    "prefix": "this_public",
+    "body": [
+      "this.${1:prop_name} = ${1:prop_value}"
+    ],
+    "scope": "typescript,typescriptreact",
+  },
+  "this_private": {
+    "prefix": "this_private",
+    "body": [
+      "this._${1:prop_name} = ${1:prop_value}"
+    ],
+    "scope": "typescript,typescriptreact",
+  },
+  "prop_mandatory": {
+    "prefix": "prop_mandatory",
+    "body": [
+      "${1:prop_name}: ${2:prop_type};"
+    ],
+    "scope": "typescript,typescriptreact",
+  },
+  "prop_readonly": {
+    "prefix": "prop_readonly",
+    "body": [
+      "readonly ${1:prop_name}: ${2:prop_type};"
+    ],
+    "scope": "typescript,typescriptreact",
+  },
+  "prop_unmandatory": {
+    "prefix": "prop_unmandatory",
+    "body": [
+      "${1:prop_name}?: ${2:prop_type};"
+    ],
+    "scope": "typescript,typescriptreact",
+  },
+  "prop_private": {
+    "prefix": "prop_private",
+    "body": [
+      "private _${1:prop_name}: ${2:prop_type};",
+      "",
+      "get ${1}(): ${2:prop_type} {",
+      "  return this._${1:prop_name};",
+      "}",
+      "",
+      "set ${1}(${3:param}): void {",
+      "  this._${1:prop_name}= value;",
+      "}",
     ],
     "scope": "typescript,typescriptreact",
   },
@@ -68,6 +123,15 @@
     ],
     "scope": "typescript, typescriptreact",
   },
+  "interface_extends": {
+    "prefix": "interface_extends",
+    "body": [
+      "export interface ${1/(.+)/${1:/capitalize}/} extends ${2/(.+)/${2:/capitalize}/} {",
+      "  ${3:props1}: ${4:type};",
+      "};"
+    ],
+    "scope": "typescript, typescriptreact",
+  },
   "interface_function": {
     "prefix": "interface_function",
     "body": [
@@ -77,4 +141,142 @@
     ],
     "scope": "typescript, typescriptreact",
   },
+  "overload_function": {
+    "prefix": "overload_function",
+    "body": [
+      "function (${1:param}): ${2:return_type};",
+    ],
+    "scope": "typescript, typescriptreact",
+  },
+  "class": {
+    "prefix": "class",
+    "body": [
+      "export default class ${1/(.+)/${1:/capitalize}/} {",
+      "  constructor(${2:param}) {",
+      "    ${3}",
+      "  }",
+      "};"
+    ],
+    "scope": "javascript, javascriptreact, typescript, typescriptreact",
+  },
+  "class_extends": {
+    "prefix": "class_extends",
+    "body": [
+      "export default class ${1/(.+)/${1:/capitalize}/} extends ${2/(.+)/${2:/capitalize}/ {",
+      "  constructor(${3:params}: ${4:params_type}) {",
+      "    super(${3})",
+      "    ${0}",
+      "  }",
+      "};"
+    ],
+    "scope": "javascript, javascriptreact, typescript, typescriptreact",
+  },
+  "class_implements": {
+    "prefix": "class_implements",
+    "body": [
+      "export default class ${1/(.+)/${1:/capitalize}/} implements ${2/(.+)/${2:/capitalize}/ {",
+      "  constructor(${3:param}) {",
+      "    ${3}",
+      "  }",
+      "};"
+    ],
+    "scope": "javascript, javascriptreact, typescript, typescriptreact",
+  },
+  "class_init": {
+    "prefix": "class_init",
+    "body": [
+      "const ${1:name}: ${2/(.*)/${1:/capitalize}/} = new ${2/(.*)/${1:/capitalize}/}(${3:value});"
+    ],
+    "scope": "typescript,typescriptreact"
+  },
+  /*
+  ! ------------------- FUNCTION SECTION -------------------
+  */
+  "throttle_react_hook_ts": {
+    "description": "(React hook in TypeScript)\n\n@param fn : function callback\n@param delay : number (execution delay)\n@param options : { leading, trailing }",
+    "prefix": "hook_throttle_ts",
+    "body": [
+      "import { useRef, useCallback, useEffect } from \"react\";",
+      "",
+      "type ThrottleOptions = {",
+      "  leading?: boolean;",
+      "  trailing?: boolean;",
+      "};",
+      "",
+      "type ThrottleControls = {",
+      "  cancelThrottle: () => void;",
+      "  flushThrottle: () => void;",
+      "};",
+      "",
+      "export default function useThrottle<T extends (...args: any[]) => void>(",
+      "  fn: T,",
+      "  delay: number = 1000,",
+      "  options: ThrottleOptions = { leading: true, trailing: true }",
+      "): [(...args: Parameters<T>) => void, ThrottleControls] {",
+      "  const fnRef = useRef(fn);",
+      "  const lastArgs = useRef<Parameters<T> | null>(null);",
+      "  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);",
+      "  const isThrottled = useRef(false);",
+      "",
+      "  const { leading = true, trailing = true } = options;",
+      "",
+      "  useEffect(() => {",
+      "    fnRef.current = fn;",
+      "  }, [fn]);",
+      "",
+      "  const throttledFn = useCallback(",
+      "    (...args: Parameters<T>) => {",
+      "      if (isThrottled.current) {",
+      "        if (trailing) lastArgs.current = args;",
+      "        return;",
+      "      }",
+      "",
+      "      if (leading) {",
+      "        fnRef.current(...args);",
+      "      } else if (trailing) {",
+      "        lastArgs.current = args;",
+      "      }",
+      "",
+      "      isThrottled.current = true;",
+      "",
+      "      timeoutRef.current = setTimeout(() => {",
+      "        isThrottled.current = false;",
+      "",
+      "        if (trailing && lastArgs.current) {",
+      "          fnRef.current(...lastArgs.current);",
+      "          lastArgs.current = null;",
+      "        }",
+      "      }, delay);",
+      "    },",
+      "    [delay, leading, trailing]",
+      "  );",
+      "",
+      "  const cancelThrottle = useCallback(() => {",
+      "    if (timeoutRef.current) {",
+      "      clearTimeout(timeoutRef.current);",
+      "      timeoutRef.current = null;",
+      "    }",
+      "    isThrottled.current = false;",
+      "    lastArgs.current = null;",
+      "  }, []);",
+      "",
+      "  const flushThrottle = useCallback(() => {",
+      "    if (timeoutRef.current) {",
+      "      clearTimeout(timeoutRef.current);",
+      "      timeoutRef.current = null;",
+      "    }",
+      "",
+      "    isThrottled.current = false;",
+      "",
+      "    if (lastArgs.current) {",
+      "      fnRef.current(...lastArgs.current);",
+      "      lastArgs.current = null;",
+      "    }",
+      "  }, []);",
+      "",
+      "  return [throttledFn, { cancelThrottle, flushThrottle }];",
+      "}"
+    ],
+    "scope": "typescript, typescriptreact"
+  }
 }
