@@ -711,7 +711,7 @@
     "description": "debug_typeof",
     "prefix": "dbg_typeof",
     "body": [
-      "console.debug(typeof ${0})"
+      "typeof ${1:type} === \"${2:type}\")"
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
   },

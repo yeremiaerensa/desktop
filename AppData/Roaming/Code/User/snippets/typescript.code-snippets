@@ -1,66 +1,80 @@
 {
+  "param": {
+    "prefix": "param",
+    "body": [
+      "${1:name}: ${2:type}"
+    ],
+    "scope": "typescript,typescriptreact",
+  },
   "const": {
     "prefix": "const",
     "body": [
       "const ${1:name}: ${2:type} = ${3:value}"
     ],
     "scope": "typescript,typescriptreact",
-    "description": "(auto-complete) \n\n @type: \n :string|:boolean|:number| \n\n  "
   },
-  "const_arr": {
-    "prefix": "const_arr",
+  "let": {
+    "prefix": "let",
     "body": [
-      "const ${1:name}: readonly ${2type}[] = [${3:value}, ${0}]"
+      "let ${1:name}: ${2type} = ${3:value}"
     ],
     "scope": "typescript,typescriptreact",
-    "description": "(auto-complete) \n\n @type: \n :string|:boolean|:number \n\n  "
   },
-  "let_arr": {
-    "prefix": "let_arr",
+  "type_union": {
+    "prefix": "type_union",
     "body": [
-      "let ${1:name}: ${2type}[] = [${3:value}, ${0}]"
+      "export type ${1/(.+)/${1:/capitalize}/} = ${2:type1} | ${3:type2}",
     ],
-    "scope": "typescript,typescriptreact",
-    "description": "(auto-complete) \n\n @type: \n :string|:boolean|:number \n\n  "
+    "scope": "typescript, typescriptreact",
   },
-  "const_tuple": {
-    "prefix": "const_tuple",
+  "type_alias": {
+    "prefix": "type_alias",
     "body": [
-      "const ${1:name}: readonly [${2:type}, ${3}] = [${4:value}, ${0}]"
+      "export type ${1/(.+)/${1:/capitalize}/} = ${2:type}",
     ],
-    "scope": "typescript,typescriptreact",
-    "description": "(auto-complete) \n\n @type: \n :string|:boolean|:number|[type, type] \n\n  "
+    "scope": "typescript, typescriptreact",
   },
-  "let_tuple": {
-    "prefix": "let_tuple_arr",
+  "type_tuple": {
+    "prefix": "type_tuple",
     "body": [
-      "let ${1:name}: [{2:type}, ${3}] = [${4:value}, ${0}]"
+      "export type ${1/(.+)/${1:/capitalize}/} = [${2:type1}, ${3:type2}]",
     ],
-    "scope": "typescript,typescriptreact",
-    "description": "(auto-complete) \n\n @type: \n :string|:boolean|:number|[type, type] \n\n  "
+    "scope": "typescript, typescriptreact",
   },
-  "const_obj": {
-    "prefix": "const_obj",
+  "type_function": {
+    "prefix": "type_function",
     "body": [
-      "const ${1:name} = {${2:props}: ${3:value}, ${0}} as const;"
+      "export type ${1/(.+)/${1:/capitalize}/} = (${2:param}) => ${3:return_type}",
     ],
-    "scope": "typescript,typescriptreact",
-    "description": "(auto-complete) \n\n @type: \n :string|:boolean|:number \n\n  "
+    "scope": "typescript, typescriptreact",
   },
-  "let_obj": {
-    "prefix": "let_obj",
+  "enum_type": {
+    "prefix": "enum_type",
     "body": [
-      "type ${2:custom_type} = {",
-      "  ${3:props}: ${5:type},",
-      "  ${6:props}: ${8:type}",
-      "}",
-      "",
-      "let ${1:name}: ${2:custom_type} = {",
-      "  ${3:props}: ${4:value},",
-      "  ${6:props}: ${7:value}",
+      "export enum ${1/(.+)/${1:/capitalize}/} {",
+      "  ${2:FIRST},",
+      "  ${3:SECOND},",
+      "}"
+    ],
+    "scope": "typescript, typescriptreact",
+  },
+  "interface_object": {
+    "prefix": "interface_object",
+    "body": [
+      "export interface ${1/(.+)/${1:/capitalize}/} {",
+      "  ${2:props1}: ${3:type};",
+      "  ${4:props2}: ${5:type};",
       "};"
     ],
-    "scope": "typescript,typescriptreact",
-    "description": "(auto-complete) \n\n @type: \n :string|:boolean|:number \n\n  "
+    "scope": "typescript, typescriptreact",
+  },
+  "interface_function": {
+    "prefix": "interface_function",
+    "body": [
+      "export interface ${1/(.+)/${1:/capitalize}/} {",
+      "  (${2:param}): ${3:return_type};",
+      "};"
+    ],
+    "scope": "typescript, typescriptreact",
   },
 }
