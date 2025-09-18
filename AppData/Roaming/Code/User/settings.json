@@ -416,5 +416,11 @@
   "explorer.confirmDelete": false,
   "codeium.enableConfig": {
     "*": false
+  },
+  "[typescript]": {
+    "editor.snippetSuggestions": "top",
+    "editor.snippets.codeActions.enabled": true,
+    "editor.suggest.snippetsPreventQuickSuggestions": true,
+    "editor.suggest.showSnippets": true
   }
 }
