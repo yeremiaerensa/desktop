@@ -422,5 +422,7 @@
     "editor.snippets.codeActions.enabled": true,
     "editor.suggest.snippetsPreventQuickSuggestions": true,
     "editor.suggest.showSnippets": true
-  }
+  },
+  "editor.suggest.showStatusBar": true,
+  "editor.suggest.showTypeParameters": false
 }

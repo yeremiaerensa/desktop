@@ -2,10 +2,10 @@
   /*
   ! ------------------- TYPE SECTION -------------------
   */
-  "<T>": {
-    "prefix": "T",
+  "generic": {
+    "prefix": "generic",
     "body": [
-      "<T>",
+      "${1:type}<${2:T}>",
     ],
     "scope": "typescript, typescriptreact",
   },
@@ -500,6 +500,20 @@
     "prefix": "fn_arrow",
     "body": [
       "(${1:param}): ${2:return_type) => ${0}",
+    ],
+    "scope": "typescript,typescriptreact",
+  },
+  "fn_create_instance": {
+    "prefix": "fn_create_instance",
+    "body": [
+      "const classes = {${1:class_list}};",
+      "",
+      "function createInstance<T extends keyof typeof classes>(",
+      "  type: T,",
+      "  args: ConstructorParameters<typeof classes[T]>",
+      "): InstanceType<typeof classes[T]> {",
+      "  return new classes[type](...args);",
+      "}"
     ],
     "scope": "typescript,typescriptreact",
   },
