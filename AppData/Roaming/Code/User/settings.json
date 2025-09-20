@@ -175,6 +175,7 @@
     "mysqli_fetch_assoc",
     "mysqli_num_rows",
     "mysqli_query",
+    "nodemon",
     "noveldata",
     "password_hash",
     "password_verify",
@@ -190,6 +191,7 @@
     "rmdir",
     "rowCount",
     "rtrim",
+    "schtasks",
     "session_destroy",
     "session_start",
     "signup",
@@ -217,6 +219,7 @@
     "wibu",
     "xampp",
     "Xora",
+    "yere",
     "yeremia",
     "yeremiaerensa",
     "yoay",
@@ -427,5 +430,18 @@
   "editor.suggest.showTypeParameters": false,
   "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": false,
   "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": false,
-  "console-ninja.featureSet": "Community"
+  "console-ninja.featureSet": "Community",
+  "console-ninja.logCaptureOptions": {
+    "resolveGetters": true
+  },
+  "orta.vscode-twoslash-queries.enableStrictEnd": true,
+  "editor.defaultFoldingRangeProvider": "formulahendry.code-runner",
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    "class:list",
+    "variants",
+    "styles"
+  ]
 }

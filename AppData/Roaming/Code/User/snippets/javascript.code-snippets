@@ -711,7 +711,7 @@
     "description": "debug_typeof",
     "prefix": "dbg_typeof",
     "body": [
-      "typeof ${1:type} === \"${2:type}\")"
+      "typeof ${1:type} === \"${2:type}\""
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
   },

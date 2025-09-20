@@ -411,7 +411,7 @@
     "prefix": "loop_for_in",
     "body": [
       "for (const ${1:key} in ${2:iterable}) {",
-      "  ${2://logic};",
+      "  ${3:console.debug(key);",
       "}",
     ],
     "scope": "typescript,typescriptreact",
@@ -509,7 +509,7 @@
   "fn_arrow": {
     "prefix": "fn_arrow",
     "body": [
-      "(${1:param}): ${2:return_type) => ${0}",
+      "(${1:param}): ${2:return_type} => ${0}",
     ],
     "scope": "typescript,typescriptreact",
   },

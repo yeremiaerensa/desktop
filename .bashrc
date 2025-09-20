@@ -1,17 +1,17 @@
 alias back='cd ..'
 alias file='touch'
 alias folder='mkdir'
-alias coding='cd ~/Documents/Coding'
-
-alias project-dir='cd ~/Documents/Coding/Project'
-alias tutorial-dir='cd ~/Documents/Coding/Tutorial'
 
 alias https-dir='cd ~/https'
-alias https='explorer.exe "$(cygpath -w ~/https)"'
+alias coding-dir='cd ~/Documents/Coding'
+alias docs-dir='cd ~/Documents/Coding/Docs'
 alias script-dir='cd ~/Documents/Coding/Script'
-alias script='explorer.exe "$(cygpath -w ~/Documents/Coding/Script)"'
+alias project-dir='cd ~/Documents/Coding/Project'
+
+alias https='explorer.exe "$(cygpath -w ~/https)"'
 alias test-script='bash ~/Documents/Coding/Script/test-script.sh'
 alias new-script='code ~/Documents/Coding/Script/test-script.sh'
+alias script='explorer.exe "$(cygpath -w ~/Documents/Coding/Script)"'
 
 alias code-folder='code . --reuse-window'
 
@@ -27,8 +27,11 @@ alias js-snippet-list='explorer "https://github.com/r5n-labs/vscode-react-javasc
 alias htdocs-dir='cd /c/xampp/htdocs'
 alias htdocs='explorer.exe "$(cygpath -w /c/xampp/htdocs)"'
 
-alias mysql='mysql -u root -p'
-alias php-mysql='bash ~/Documents/Coding/Script/php-mysql-database.sh'
+alias mysql-cli='mysql -u root -p'
+alias mysql-run='powershell.exe -Command "Start-ScheduledTask -TaskName MySQL-Start"'
+alias mysql-stop='powershell.exe -Command "Start-ScheduledTask -TaskName MySQL-Stop"'
+alias mysql-restart='powershell.exe -Command "Start-ScheduledTask -TaskName MySQL-Restart"'
+alias mysql-status='powershell.exe -NoProfile -Command "Get-Service -Name mysql-xampp | Select-Object Status, Name, DisplayName"'
 
 alias xampp='start "" "/c/xampp/xampp-control.exe"'
 alias chrome='start "" "/c/Program Files/Google/Chrome/Application/chrome.exe"'
