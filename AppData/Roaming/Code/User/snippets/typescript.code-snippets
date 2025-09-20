@@ -1,5 +1,15 @@
 {
   /*
+  ! ------------------- BUILT IN SECTION -------------------
+  */
+  "Set": {
+    "prefix": "Set",
+    "body": [
+      "new Set(${1})",
+    ],
+    "scope": "typescript, typescriptreact",
+  },
+  /*
   ! ------------------- TYPE SECTION -------------------
   */
   "generic": {

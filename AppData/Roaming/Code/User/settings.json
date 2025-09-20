@@ -424,5 +424,8 @@
     "editor.suggest.showSnippets": true
   },
   "editor.suggest.showStatusBar": true,
-  "editor.suggest.showTypeParameters": false
+  "editor.suggest.showTypeParameters": false,
+  "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": false,
+  "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": false,
+  "console-ninja.featureSet": "Community"
 }
